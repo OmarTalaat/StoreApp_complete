@@ -25,7 +25,7 @@ const addProduct= async(quantity: number, orderId: number, productId: number) =>
 
         var item:ItemDetailsDto
         var product:ProductDetailsDto
-        product= {id:productToreturn.productid ,name:productToreturn.name ,price:productToreturn.price}
+        product= {id:productToreturn.productid ,name:productToreturn.name ,price:productToreturn.price , url:productToreturn.url}
         
            item={id:itemtoreturn.itemid,quantity:itemtoreturn.quantity, product:product}
            return item
@@ -43,7 +43,7 @@ const getItem_detailes = async(itemId:number) =>{
 
         var item:ItemDetailsDto
         var product:ProductDetailsDto
-        product ={id:productToreturn.productid, name:productToreturn.name, price:productToreturn.price}
+        product ={id:productToreturn.productid, name:productToreturn.name, price:productToreturn.price , url:productToreturn.url}
         return item={id:itemToreturn.itemid, quantity:itemToreturn.quantity ,product:product  }
         } else {
             return null
@@ -61,7 +61,7 @@ const getItemListInOrder = async(orderId:number) => {
             let itemdetails :ItemDetailsDto;
             var product:ProductDetailsDto
             const productToreturn = await productRepo.getproductByid(item.productid)
-            product ={id:productToreturn.productid, name:productToreturn.name, price:productToreturn.price}
+            product ={id:productToreturn.productid, name:productToreturn.name, price:productToreturn.price , url:productToreturn.url}
             itemdetails={id:item.itemid, quantity:item.quantity ,product:product}
             return itemdetails;
         }));

@@ -48,7 +48,10 @@ import { UserForEditDto } from "../dtos/userDtos/userForEditDto";
             const result = await conn.query(sql,[username])
             const user = result.rows[0]
             conn.release()
-            return user
+            
+              return user
+         
+           
             } catch (err) {
                 throw new Error(`Could not find user ${username}. Error: ${err}`)
             }

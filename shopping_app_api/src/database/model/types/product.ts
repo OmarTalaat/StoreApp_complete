@@ -5,6 +5,7 @@ import { type } from "os";
     productid: number;
     name: string;
     price: number;
+    url?:string;
 }
 
 

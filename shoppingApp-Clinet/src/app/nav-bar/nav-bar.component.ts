@@ -43,6 +43,7 @@ export class NavBarComponent implements OnInit {
        this.alertify.success('logged in successfully');
        }, error => {
          this.alertify.error(error);
+
        } , () => {this.router.navigate(['/products']); }
        );
      }

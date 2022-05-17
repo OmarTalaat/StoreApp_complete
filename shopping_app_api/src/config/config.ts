@@ -17,7 +17,8 @@ const SERVER = {
     port: PORT ,
     saltRounds: SALTROUNDS,
     tOKEN_SECRET:TOKEN_SECRET ,
-    APP_SECRET: APP_SECRET
+    APP_SECRET: APP_SECRET,
+    Env:ENV
 }
 
 const config = { serve : SERVER}

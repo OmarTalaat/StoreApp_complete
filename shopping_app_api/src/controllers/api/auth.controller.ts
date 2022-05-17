@@ -43,10 +43,15 @@ const login = async (req:Request, res:Response,next:NextFunction) =>{
             username: req.body.username,
             password:req.body.password
         }
-        
         const  usertoreturn  = await authService.SignIn(user);
+        if (usertoreturn) {
+            return res.status(200).json(usertoreturn);
+        } else {
+            res.sendStatus(401);
+        }
+        
 
-        return res.status(200).json(usertoreturn);
+        
         
     } catch (error) {
         throw new Error(`you can not login due to: ${error}`)

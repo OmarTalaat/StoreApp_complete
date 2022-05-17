@@ -32,6 +32,7 @@ describe('product Model' , () =>{
      let productId:number
      const name:string ='producttest'
      const price:number = 10
+     let url:string;
       beforeAll(async()=>{
         const category=  await categories_repo.addcategory_FromRepo('Categorytest')
         const addproduct = await productRepo.addProductRepo(name,price,categoryId);
@@ -97,7 +98,8 @@ describe('product Model' , () =>{
         const productList =[{
             productid: productId,
             name: name,
-            price: price
+            price: price,
+            url: url
         }]
         expect(productListFromrepo).toEqual(productList)
         }, 3000);
@@ -112,7 +114,8 @@ describe('product Model' , () =>{
        expect(userListFromrepo).toEqual([{
         productid: productId,
         name: name,
-        price: price
+        price: price,
+        url:url
        }])
         }, 6000);
        

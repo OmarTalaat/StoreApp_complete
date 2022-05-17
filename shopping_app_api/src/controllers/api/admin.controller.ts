@@ -102,6 +102,7 @@ const updateProduct = async(req:Request, res:Response)=>{
             id:parseInt(req.params.productId),
             name: req.body.name,
             price:req.body.price,
+            url:req.body.url
         }
         const updatededProduct = await adminService.updateProduct(product);
               res.status(204).json({updatededProduct, message: 'product updated successfully '})

@@ -104,7 +104,7 @@ const updateProduct = async(product:ProductEditDto) => {
 
         var productToreturn:ProductDetailsDto;
 
-        return productToreturn={id:updatedProduct.productid,name:updatedProduct.name,price:updatedProduct.price}
+        return productToreturn={id:updatedProduct.productid,name:updatedProduct.name,price:updatedProduct.price , url:updatedProduct.url}
 
     } catch (err) {
         throw new Error(`can not update product ${product.name}`);
