@@ -14,26 +14,40 @@ Authorization
    login  user 'http://localhost:3000/api/auth/login' [post]
      in body json Example: { "username":"user", "password":"password"}
 
+     check if username exist 'http://localhost:3000/api/auth/?isUerNameExist=username'[GET] for using as directive for angular to check the username before register
+
 Admin [need Admin login]
-   to login as Admin 
-         { "username":"Admin", "password":"password"}
- For users  control
- index of All Users  [token required] [required Admin Role] 'http://localhost:3000/api/admin/users/all' [GET]
-       
- delete user  [token required] [required Admin Role] 'http://localhost:3000/api/admin/users/:userId' [delete] 
-    
+        to login as Admin 
+             { "username":"Admin", "password":"password"}
+     For users  control
+        index of All Users  [token required] [required Admin Role] 'http://localhost:3000/api/admin/users/all' [GET]
+            
+        delete user  [token required] [required Admin Role] 'http://localhost:3000/api/admin/users/:userId' [delete] 
 
-For category control
-    Add category  [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories' [post]
-         
-           in body json Example:  { "name":"Diary" }
+      For Category control
+                
+          Add category [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories'[post]
+                            in body json Example:    {"name":"category test"}
 
-For Products
- Add Product [token required] [required Admin Role] ' http://localhost:3000/api/admin/categories/:categoryId/products' [post]
-      
-         in body json Example: { "name":"milk", "price":5 }
-       
-       
+                     
+          update category by Id [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories/:categoryId'[put]
+                                    in body json Example:  {"name":" category test2"}
+
+
+          delete category by Id [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories/:categoryId' [delete]
+
+     For Product control
+                             
+                Add product [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories/:categoryId/products' [post]
+                                            in body json Example:       {"name":"product test", "price":10}
+                              
+                update product [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories/:categoryId/products/:productId' [put]
+                                        in body json Example:       {"name":"product test2", "price":10}
+
+
+                delete product [token required] [required Admin Role] 'http://localhost:3000/api/admin/categories/:categoryId/products/:productId' [delete]
+
+
 
 
 Users
@@ -50,31 +64,54 @@ Users
 
 categories 
      user can get All categories [token required] 'http://localhost:3000/api/users/:userId/categories' [GET]
+
+     user can get gategory details by id [token required] 'http://localhost:3000/api/users/:userId/categories/:categoryId' [GET]
        
      
 
 Products
      user can get  All products depend on category [token required] 'http://localhost:3000/api/users/:userId/categories/:categoryId' [GET]
+
+     user can get  product by Id depend on category [token required] 'http://localhost:3000/api/users/:userId/categories/:categoryId/products/:productId' [GET]
        
 
 
 Orders
    user create order [token required] 'http://localhost:3000/api/users/:userId/orders' [post]
+
+     Current Active Order by user [token required] 'http://localhost:3000/api/users/:userId/orders/?status=Active' [GET]
+
+ 
+
+   get order details with items and products by orderId  [token required] 'http://localhost:3000/api/users/:userId/orders/:orderId' [GET] 
+
+    complete order by user [token required] 'http://localhost:3000/api/users/:userId/orders/:orderId' [put]
      
+                   in body json Example: { "status": "Complete"} 
+
+    user can delete order [token required] 'http://localhost:3000/api/users/:userId/orders/:orderId' [delete]
     
+  
+
+  Items :- 
+  
    user can add item to order [token required] 'http://localhost:3000/api/users/:userId/orders/:orderId/items/addproduct' [post]
       
-          in body json Example:     {"quantity":6, "productId":1 }
+          in body json Example:     {"quantity":1, "productId":1 } also can use this method to update quantity
 
-   get order details with items and products by id   [token required] 'http://localhost:3000/api/users/:userId/orders/:orderId' [GET]
+     user can get item details by itemId  [token required]  'http://localhost:3000/api/users/:userId/orders/:orderId/items/:itemId' [GET]
+
+     user can update quantity of item in order [token required]  'http://localhost:3000/api/users/:userId/orders/:orderId/items/:itemId' [put]   
+              in body json Example:  {"quantity":2}
+
+     user can remove item from order [token required]  'http://localhost:3000/api/users/:userId/orders/:orderId/items/:itemId' [delete]
+
+   
        
 
-   Current Active Order by user [token required] 'http://localhost:3000/api/users/:userId/orders/?status=Active' [GET]
         
 
-  complete order by user [token required] 'http://localhost:3000/api/users/:userId/orders/:orderId' [put]
-     
-         in body json : { "status": "Complete"}
+ 
 
   
    Completed Orders by user [token required] 'http://localhost:3000/api/users/:userId/orders/?status=Complete' [GET]
