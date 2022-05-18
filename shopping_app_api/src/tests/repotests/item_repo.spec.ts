@@ -19,6 +19,7 @@ describe('item Model' , () =>{
 
 
 
+
     it('should have an index method', () => {
         expect(itemrepo.getitemsbyorder).toBeDefined();
       });
@@ -50,6 +51,8 @@ describe('item Model' , () =>{
       let categoryId:number;
       let name:string ='producttest'
       let price:number = 10
+      let url:string = 'example url'
+      let description:string ='example description'
       const quantity:number =1
       let productId:number;
       beforeAll(async()=>{
@@ -57,13 +60,13 @@ describe('item Model' , () =>{
         let user = await authService.SignIn(userforlogin);
         const order = await orderRepo.createOrder(status.Active , userId)
         const category=  await categories_repo.addcategory_FromRepo('Dairy')
-        const addproduct = await productRepo.addProductRepo(name,price,categoryId);
+        const addproduct = await productRepo.addProductRepo(name,url,price,description,categoryId);
 
         userId=user!.user.id
         orderid= order.orderid
         categoryId = category.categoryid
         productId= addproduct.productid
-        product={id:addproduct.productid ,name:addproduct.name ,price:addproduct.price}
+        product={id:addproduct.productid ,name:addproduct.name,url:addproduct.url ,price:addproduct.price,description:addproduct.description}
     })
 
     

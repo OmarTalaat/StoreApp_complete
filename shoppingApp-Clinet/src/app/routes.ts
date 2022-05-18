@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
+import { CategoryListComponent } from "./categories/category-list/category-list.component";
 import { HomeComponent } from "./home/home.component";
-import { ProductsComponent } from "./products/products.component";
+
 import { RegisterComponent } from "./register/register.component";
 import { AuthGuard } from "./_guards/auth.guard";
 
@@ -16,7 +17,7 @@ export const appRoutes: Routes = [
   runGuardsAndResolvers: 'always',
   canActivate : [AuthGuard],
   children: [
-      {path: 'products',component:ProductsComponent}
+      {path: 'categorylist',component:CategoryListComponent}
 
 
   ]

@@ -11,6 +11,7 @@ describe('product Model' , () =>{
     it('should have an index method', () => {
         expect(productRepo.getAllproductsbycategory_repo).toBeDefined();
       });
+
     
       it('should have a show method', () => {
         expect(productRepo.getproductByid).toBeDefined();
@@ -32,10 +33,11 @@ describe('product Model' , () =>{
      let productId:number
      const name:string ='producttest'
      const price:number = 10
-     let url:string;
+     let url:string = 'url example'
+     let description:string ='descrption example'
       beforeAll(async()=>{
         const category=  await categories_repo.addcategory_FromRepo('Categorytest')
-        const addproduct = await productRepo.addProductRepo(name,price,categoryId);
+        const addproduct = await productRepo.addProductRepo(name,url,price ,description,categoryId);
         categoryId= category.categoryid
         productId=addproduct.productid
       })
@@ -48,12 +50,14 @@ describe('product Model' , () =>{
 
       it('create method should add a product', async () => {
         const category=  await categories_repo.addcategory_FromRepo('Categorytest1')
-        const addproduct = await productRepo.addProductRepo('producttest1',price,category.categoryid);
-        const result:ProductDetailsDto ={id:addproduct.productid , name:addproduct.name ,price:addproduct.price}
+        const addproduct = await productRepo.addProductRepo('producttest1',url,price,description,category.categoryid);
+        const result:ProductDetailsDto ={id:addproduct.productid , name:addproduct.name,url:addproduct.url ,price:addproduct.price ,description:addproduct.description}
         expect(result).toEqual({
           id: result.id,
           name: result.name,
-          price: result.price
+          url:result.url,
+          price: result.price,
+          description:result.description
         });
 
     
@@ -64,13 +68,15 @@ describe('product Model' , () =>{
       it('show method should return the correct product', async () => {
      
         setTimeout(async () => {
-          const addproduct = await productRepo.addProductRepo(name,price,categoryId);
+          const addproduct = await productRepo.addProductRepo(name,url,price,description,categoryId);
          
           const result:ProductDetailsDto ={id:addproduct.productid , name:addproduct.name ,price:addproduct.price}
           expect(result).toEqual({
             id: result.id,
           name: result.name,
-          price: result.price
+          url:result.url,
+          price: result.price,
+          description:result.description
           })
         }, 2000);
        
@@ -79,7 +85,7 @@ describe('product Model' , () =>{
       it('show method should return update product', async () => {
      
         setTimeout(async () => {
-          const addproduct = await productRepo.addProductRepo('milk',10,categoryId);
+          const addproduct = await productRepo.addProductRepo('milk',url,10,description,categoryId);
          
           const result:ProductDetailsDto ={id:addproduct.productid , name:addproduct.name,price:addproduct.price}
           expect(result).toEqual({
@@ -99,7 +105,8 @@ describe('product Model' , () =>{
             productid: productId,
             name: name,
             price: price,
-            url: url
+            url: url,
+            description: description
         }]
         expect(productListFromrepo).toEqual(productList)
         }, 3000);
@@ -115,7 +122,8 @@ describe('product Model' , () =>{
         productid: productId,
         name: name,
         price: price,
-        url:url
+        url:url,
+        description:description
        }])
         }, 6000);
        

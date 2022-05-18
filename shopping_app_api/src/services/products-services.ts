@@ -25,7 +25,7 @@ const getproductbyId = async(productId:number) => {
 
         let product:ProductDetailsDto;
 
-        return product={id:productToreturn.productid, name: productToreturn.name , price: productToreturn.price , url:productToreturn.url};
+        return product={id:productToreturn.productid, name: productToreturn.name , price: productToreturn.price , url:productToreturn.url,description:productToreturn.description};
     } catch (err) {
         throw new Error(`can not get this product error${err}`)
     }

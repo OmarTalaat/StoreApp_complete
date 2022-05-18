@@ -8,7 +8,7 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" *ngIf="loggedIn()">
       <ul class="navbar-nav" routerLinkActive="active" *ngIf="loggedIn()">
-        <li class="active"><a href="/products" class="nav-link" routerLink="products">products </a></li>
+        <li class="active"><a href="/categorylist" class="nav-link" routerLink="categorylist">products </a></li>
         <li *appHasRole="['Admin','Moderator']" class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/admin']"><i class="fa fa-list-alt" aria-hidden="true"></i> Admin</a>
         </li>

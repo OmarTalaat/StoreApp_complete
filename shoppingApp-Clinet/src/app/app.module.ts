@@ -9,7 +9,6 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AuthService } from './_service/auth.service';
 import { AlertifyService } from './_service/alertify.service';
 import { RegisterComponent } from './register/register.component';
-import { ProductsComponent } from './products/products.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,6 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HasRoleDirective } from './_directive/hasRole.directive';
 import { UserService } from './_service/user.service';
 import { UniqueUserNameDirective } from './_directive/uniqueUserName.directive';
+import { ProductCardComponent } from './products/product-card/product-card.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProductsListComponent } from './products/products-list/products-list.component';
+import { CategoryCardComponent } from './categories/category-card/category-card.component';
+import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +30,14 @@ import { UniqueUserNameDirective } from './_directive/uniqueUserName.directive';
     HomeComponent,
       NavBarComponent,
       RegisterComponent,
-      ProductsComponent,
       HasRoleDirective,
-      UniqueUserNameDirective
+      UniqueUserNameDirective,
+      ProductCardComponent,
+      ProductDetailsComponent,
+      ProductsListComponent,
+      CategoryCardComponent,
+      CategoryDetailsComponent,
+      CategoryListComponent
 
    ],
   imports: [

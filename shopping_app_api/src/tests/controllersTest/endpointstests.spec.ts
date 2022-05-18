@@ -73,7 +73,7 @@ describe('All Endpoints For The App' ,async () =>{
 
             // product methods
 
-                        productToadd={name:'product1' , price:10}
+                        productToadd={name:'product1' ,url:'url example', price:10,description:'description test'}
             let newproduct = await adminService.addProduct(productToadd,categoryId)
                         productId = newproduct.id
             //oreder methods
@@ -101,7 +101,7 @@ describe('All Endpoints For The App' ,async () =>{
             const categoerytest = await adminService.addCategory(newcategoryfortestDto.name)
                   categoryfortestId=categoerytest.id
 
-                  productToaddtest={name:'producttestadmin1' , price:10}
+                  productToaddtest={name:'producttestadmin1' ,url:'url example', price:10 ,description:'descrption example'}
              const newproducttest = await adminService.addProduct(productToaddtest,categoryId)
                         producttestId = newproducttest.id
 
@@ -489,7 +489,7 @@ describe('All Endpoints For The App' ,async () =>{
 
                       it('Add product to category',async ()=>{
                         let product:ProductAddDto
-                        product={name:'producttest2' , price:10}
+                        product={name:'producttest2' ,url:'url example', price:10 , description:'descrption example'}
                         request
                         .post(`/api/admin/categories/${categoryId}/products`)
                         .set("Authorization", `Bearer ${AdminToken}`)
