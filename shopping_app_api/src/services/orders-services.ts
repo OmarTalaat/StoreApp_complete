@@ -30,11 +30,16 @@ const get_order_bystatus = async( status:string , userId:number ) =>{
     try {
         const orderfromrepo = await orderRepo.getOrdersByStatus(status,userId);
 
-        var orderByStatus:OrderDetailsDto[]=[];
-         orderfromrepo.forEach( order => {
-             orderByStatus.push({id:order.orderid , status:order.status  })
-         })
+       if (orderfromrepo ) {
+        var orderByStatus:OrderDetailsDto
+        orderByStatus={id:orderfromrepo.orderid , status:orderfromrepo.status  }
         return orderByStatus
+       } else {
+           return null
+       }
+          
+
+        
     } catch (err) {
         throw new Error(`you can not edit status ${err}`)
     }

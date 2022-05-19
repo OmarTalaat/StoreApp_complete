@@ -44,7 +44,7 @@ export class NavBarComponent implements OnInit {
        }, error => {
          this.alertify.error(error);
 
-       } , () => {this.router.navigate(['/products']); }
+       } , () => {this.router.navigate(['/categorylist']); }
        );
      }
       loggedIn() {

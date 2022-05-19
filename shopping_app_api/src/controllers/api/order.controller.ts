@@ -16,7 +16,7 @@ const addOrder = async(req:Request, res:Response) =>{
         }
         const userId=parseInt(req.params.userId)
         const orderToCreate = await orderservice.createOrderService(order.status , userId)
-        return res.status(201).send({order:orderToCreate ,message:'order created successfully'});
+        return res.status(201).json(orderToCreate);
     } catch (err) {
         throw new Error(`you can not create this order becouse ${err}`)
     }
@@ -32,7 +32,7 @@ const getActiveOrder = async(req:Request,res:Response)=> {
 
        const orderByStatus = await orderservice.get_order_bystatus(status,userId);
 
-       res.status(200).json({orders:orderByStatus});
+       res.status(200).json(orderByStatus);
         
     } catch (err) {
         throw new Error(`you can not create this order becouse ${err}`)

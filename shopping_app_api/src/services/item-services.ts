@@ -14,12 +14,6 @@ import productRepo from "../database/repository/products.repo";
 
 const addProduct= async(quantity: number, orderId: number, productId: number) =>{
     try {
-        
-        const order = await orderRepo.getOrderById(orderId)
-       /*  if(order.status !== 'Active'){
-            return `Could not add product  because order status is ${order.status}`
-        } */
-        
         const itemtoreturn = await itemrepo.addProduct(quantity,orderId,productId);
         const productToreturn =await productRepo.getproductByid(productId)
 
@@ -74,12 +68,10 @@ const getItemListInOrder = async(orderId:number) => {
 
 const getItemInOrderbyproductandorderid = async(productId: number , orderId:number) =>{
     const itemtobecheck = await itemrepo.getitembyordernadproduct(productId,orderId);
-    if (itemtobecheck) {
+    
         const item = await itemrepo.getitembyordernadproduct(productId,orderId);
         return item
-    } else {
-        return null
-    }
+    
    
 }
 
@@ -88,6 +80,7 @@ const update_quantity_Item = async(itemId:number,quantity:number) => {
     try {
         const update_quantity = await itemrepo.update_quantity_Item(itemId,quantity)
 
+        
         return update_quantity
     } catch (err) {
         throw new Error(` you can not update item with Id: ${itemId} error: ${err} `)

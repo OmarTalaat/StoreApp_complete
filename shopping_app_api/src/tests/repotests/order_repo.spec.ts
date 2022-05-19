@@ -72,23 +72,7 @@ describe('order Model' , ()=> {
         }, 2000);
       });
 
-      it("index method should return a list of order", async () => {
-     
-        setTimeout(async () => {
-           
-          const orderListFromrepo = await orderRepo.getOrdersByStatus(status.Active, userId);
     
-        const orderlist:OrderDetailsDto[] =[];
-           const orders= orderListFromrepo.map(order => {
-              let  orderDetails:OrderDetailsDto;
-              orderDetails ={ id: order.orderid, status: order.status }
-                return orderDetails
-            })
-            
-
-        expect(orderlist).toEqual(orders)
-        }, 3000);
-      });
 
       it('delete method should remove the order', async () => {
      
@@ -97,15 +81,15 @@ describe('order Model' , ()=> {
          
           const orderListFromrepo = await orderRepo.getOrdersByStatus(status.Active, userId);
     
-        const orderlist:OrderDetailsDto[] =[];
-           const orders= orderListFromrepo.map(order => {
+        
+           
               let  orderDetails:OrderDetailsDto;
-              orderDetails ={ id: order.orderid, status: order.status }
-                return orderDetails
-            })
+              orderDetails ={ id: orderListFromrepo.orderid, status: orderListFromrepo.status }
+                
+           
             
 
-        expect(orderlist).toEqual(orders)
+        expect(orderDetails).toEqual({id: orderListFromrepo.orderid, status: orderListFromrepo.status })
         }, 6000);
        
       });

@@ -21,8 +21,19 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
 import { CategoryCardComponent } from './categories/category-card/category-card.component';
-import { CategoryDetailsComponent } from './categories/category-details/category-details.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
+import { CategoryandproductService } from './_service/categoryandproduct.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ProductListResolver } from './_resolvers/product-list.resolver';
+import { ProductDetailsResolver } from './_resolvers/product-details.resolver';
+import { CartComponent } from './cart/cart/cart.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { CartService } from './_service/cart.service';
+
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -36,8 +47,9 @@ import { CategoryListComponent } from './categories/category-list/category-list.
       ProductDetailsComponent,
       ProductsListComponent,
       CategoryCardComponent,
-      CategoryDetailsComponent,
-      CategoryListComponent
+      CategoryListComponent,
+      CartComponent,
+      CheckoutComponent
 
    ],
   imports: [
@@ -47,13 +59,24 @@ import { CategoryListComponent } from './categories/category-list/category-list.
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+         tokenGetter,
+         allowedDomains: ['localhost:3000'],
+         disallowedRoutes: ['localhost:3000/api/auth']
+      }
+   })
   ],
   providers: [
     AuthGuard,
     AuthService,
     AlertifyService,
-    UserService
+    UserService,
+    CategoryandproductService,
+    ProductListResolver,
+    ProductDetailsResolver,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

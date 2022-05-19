@@ -40,13 +40,13 @@ const getItems_in_order = async(userId:number, status:string) =>{
           }
 }
 
- const getOrdersByStatus = async(status:string , userId:number):Promise<Order[]>=>{
+ const getOrdersByStatus = async(status:string , userId:number):Promise<Order>=>{
 try {
     const conn = await Client.connect();
         const sql = `SELECT * FROM orders WHERE user_id =${userId} AND status='${status}';`
         const result = await conn
             .query(sql);
-            const order = result.rows
+            const order = result.rows[0]
         conn.release();
         return order
 

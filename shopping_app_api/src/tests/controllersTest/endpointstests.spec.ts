@@ -91,7 +91,7 @@ describe('All Endpoints For The App' ,async () =>{
 
             userforregister_fortestadmin={username:'usertest_forAdmin',password:'password'}
             const newuser_foradmin= await authService.signUp(userforregister_fortestadmin);
-                    Adminforlogin={username:'Admin' , password:'password'}
+                    Adminforlogin={username:'Admin' , password:'$2b$10$DaV1APn3ehdp/zbAXpqCWO6KMgUlh.kM2ayRhBxVXjGSncUAuz9zW'}
             const admin = await authService.SignIn(Adminforlogin)
                     AdminToken= admin!.token
                     userfor_Adminlogin={username:'usertest_forAdmin',password:'password'}
