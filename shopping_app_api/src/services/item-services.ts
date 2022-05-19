@@ -67,9 +67,17 @@ const getItemListInOrder = async(orderId:number) => {
 }
 
 const getItemInOrderbyproductandorderid = async(productId: number , orderId:number) =>{
-    const itemtobecheck = await itemrepo.getitembyordernadproduct(productId,orderId);
+   
     
-        const item = await itemrepo.getitembyordernadproduct(productId,orderId);
+        const itemfromrepo = await itemrepo.getitembyordernadproduct(productId,orderId);
+        const productfromrepo = await productRepo.getproductByid(itemfromrepo.productid)
+
+        let product:ProductDetailsDto;
+        product={id:productfromrepo.productid , name:productfromrepo.name , 
+            url:productfromrepo.url , price:productfromrepo.price ,description:productfromrepo.description}
+
+            let item:ItemDetailsDto;
+            item={id:itemfromrepo.itemid ,quantity:itemfromrepo.quantity ,product:product}
         return item
     
    
