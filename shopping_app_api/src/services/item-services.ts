@@ -70,6 +70,7 @@ const getItemInOrderbyproductandorderid = async(productId: number , orderId:numb
    
     
         const itemfromrepo = await itemrepo.getitembyordernadproduct(productId,orderId);
+       if (itemfromrepo) {
         const productfromrepo = await productRepo.getproductByid(itemfromrepo.productid)
 
         let product:ProductDetailsDto;
@@ -79,6 +80,9 @@ const getItemInOrderbyproductandorderid = async(productId: number , orderId:numb
             let item:ItemDetailsDto;
             item={id:itemfromrepo.itemid ,quantity:itemfromrepo.quantity ,product:product}
         return item
+       } else {
+           return null
+       }
     
    
 }

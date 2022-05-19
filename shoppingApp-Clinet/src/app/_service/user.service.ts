@@ -18,18 +18,14 @@ getUser(id: number): Observable<User> {
 
 }
 getUsers(): Observable<User[]> {
-  return this.http.get<User[]>(this.baseUrl + 'users' );
+  return this.http.get<User[]>(this.baseUrl + 'users/' + this.authService.decodedToken.id  );
  }
 
 
-updateUser(id: number, user: User) {
- return this.http.put(this.baseUrl + 'users/' + id, user);
+updateUser( user: User) {
+ return this.http.put(this.baseUrl + 'users/' + this.authService.decodedToken.id , user);
 }
 
-passwordCheck(id: number , currentPassword: string) {
 
-return this.http.get<any[]>(this.baseUrl + 'users/' + id + '/VerifyPassword?currentPassword=' + currentPassword);
-
-}
 
 }

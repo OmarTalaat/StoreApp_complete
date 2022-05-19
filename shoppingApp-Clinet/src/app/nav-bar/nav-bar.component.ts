@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from '../_models/user';
@@ -22,6 +22,7 @@ export class NavBarComponent implements OnInit {
   subscription: Subscription | undefined;
   username!:string;
   password!:string;
+  @Input() quantity: number = 0;
 
   constructor(public authService: AuthService, private alertify: AlertifyService,
     private router: Router) { }
@@ -61,6 +62,8 @@ export class NavBarComponent implements OnInit {
       this.router.navigate(['/home']);
 
    }
+
+
 
 
 }

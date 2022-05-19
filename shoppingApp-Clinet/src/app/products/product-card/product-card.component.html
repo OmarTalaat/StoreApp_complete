@@ -24,7 +24,7 @@
       <div class=" bottom-wrap">
 
           <div class="price-wrap"> <a  class="btn btn-warning float-start" data-abc="true" [routerLink]="[product.id]" > details </a> </div>
-          <a  class="btn btn-primary float-end" data-abc="true" (click)="addToCart(product)"> Buy now </a>
+          <a  class="btn btn-primary float-end" data-abc="true" (click)="addItemToCart(this.product.id)"> Buy now </a>
       </div>
   </figure>
 </div>

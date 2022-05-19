@@ -10,6 +10,7 @@ import { AuthService } from './_service/auth.service';
 })
 export class AppComponent {
   jwtHelper = new JwtHelperService();
+  myCount: number = 0;
 
 
   constructor(private authService: AuthService ){}
@@ -28,5 +29,7 @@ if (user) {
 this.authService.currentUser = user;
 }}
 
-
+countChange(event: any) {
+  this.myCount = event;
+}
 }

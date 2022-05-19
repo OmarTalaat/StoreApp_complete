@@ -21,8 +21,10 @@ const addProductToOrder = async(req:Request,res:Response ) => {
 
             if (isorderexist !== null ) {
                 const orderId = isorderexist.id
+
                 const itemToreturn =await itemService.getItemInOrderbyproductandorderid(productId,orderId)
-                if ( itemToreturn.product.id) {
+
+                if ( itemToreturn?.product.id) {
                   var  quantity =itemToreturn.quantity +1
                   const update_quantity =await itemService.update_quantity_Item(itemToreturn.id ,quantity)
                   res.status(200).json(update_quantity)
@@ -35,7 +37,7 @@ const addProductToOrder = async(req:Request,res:Response ) => {
                 const ordertocreate = await orderservice.createOrderService(statusorder , userId)
                 const order_id = ordertocreate.id;
                 const itemToreturn =await itemService.getItemInOrderbyproductandorderid(productId,order_id)
-                if ( itemToreturn.product.id) {
+                if ( itemToreturn?.product.id) {
                   var  quantity =itemToreturn.quantity +1
                   const update_quantity =await itemService.update_quantity_Item(itemToreturn.id ,quantity)
                   res.status(200).json(update_quantity)
