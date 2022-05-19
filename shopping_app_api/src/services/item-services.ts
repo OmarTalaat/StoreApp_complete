@@ -87,9 +87,14 @@ const update_quantity_Item = async(itemId:number,quantity:number) => {
 
     try {
         const update_quantity = await itemrepo.update_quantity_Item(itemId,quantity)
-
+        const productfromrepo = await productRepo.getproductByid(update_quantity.productid)
+        let product:ProductDetailsDto;
+        product={id:productfromrepo.productid , name:productfromrepo.name , 
+            url:productfromrepo.url , price:productfromrepo.price ,description:productfromrepo.description}
+            let item:ItemDetailsDto;
+            item={id:update_quantity.itemid ,quantity:update_quantity.quantity ,product:product}
         
-        return update_quantity
+        return item
     } catch (err) {
         throw new Error(` you can not update item with Id: ${itemId} error: ${err} `)
     }
