@@ -1,0 +1,22 @@
+<li class="list-group-item d-flex justify-content-between lh-sm">
+  <div >
+      <h6 class="my-0">{{item.product.name}}</h6>
+      <small class="text-muted">Best Quality</small>
+  </div>
+  <span>
+    <div class="input-group number-spinner">
+      <span class="input-group-btn">
+        <button class="btn btn-danger "  style="margin-right: 5px;" data-dir="dwn" >
+          <span class="glyphicon glyphicon-minus">-</span>
+        </button>
+      </span>
+      <input type="text" class="form-control text-center " style="width: 50px;" min="1" size="1"  value="{{item.quantity}}">
+      <span class="input-group-btn">
+        <button class="btn btn-success " style="margin-left: 5px;" data-dir="up"  >
+          <span class="glyphicon glyphicon-plus" >+</span>
+        </button>
+      </span>
+    </div>
+  </span>
+  <span class="text-muted">{{subtotal}}</span>
+</li>

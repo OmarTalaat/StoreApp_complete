@@ -15,12 +15,13 @@ export class ProductDetailsComponent implements OnInit {
 
 
   constructor(
-     private alertify: AlertifyService , private route: ActivatedRoute,private router: Router ,private location: Location) { }
+      private route: ActivatedRoute,private router: Router ,private location: Location) { }
 
 
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.product = data['product'];
+
    });
   }
 

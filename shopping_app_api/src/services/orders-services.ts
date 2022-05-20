@@ -17,7 +17,7 @@ const createOrderService = async(status:string ,user_id:number) => {
     try {
         const  orderTocreate = await orderRepo.createOrder(status,user_id);
             var order:OrderDetailsDto;
-            return  order={id:orderTocreate.orderid ,status:orderTocreate.status};
+            return  order={id:orderTocreate.orderid ,status:orderTocreate.status };
     } catch (error) {
         throw new Error(`you cant create this order ${error}` )
     }
@@ -31,9 +31,15 @@ const get_order_bystatus = async( status:string , userId:number ) =>{
         const orderfromrepo = await orderRepo.getOrdersByStatus(status,userId);
 
        if (orderfromrepo ) {
-        var orderByStatus:OrderDetailsDto
-        orderByStatus={id:orderfromrepo.orderid , status:orderfromrepo.status  }
-        return orderByStatus
+        const itemcount = await itemrepo.getitemsCountbyorder(orderfromrepo.orderid);
+        var order:OrderDetailsDto;
+       var items= await itemService.getItemListInOrder(orderfromrepo.orderid);
+       
+       const sum = items!.filter(item => item.subtotal)
+       .reduce((sum, current) => (sum + current.subtotal), 0).toFixed(2);
+         order={id:orderfromrepo.orderid,status:orderfromrepo.status ,itemcount:itemcount, items:items ,total: parseFloat(sum)};
+        
+        return order
        } else {
            return null
        }
@@ -65,7 +71,9 @@ const get_order_byId =async(orderId:number) => {
             const itemcount = await itemrepo.getitemsCountbyorder(orderId);
         var order:OrderDetailsDto;
        var items= await itemService.getItemListInOrder(orderId);
-         order={id:orderToreturn.orderid,status:orderToreturn.status ,itemcount:itemcount, items:items};
+       const sum = items!.filter(item => item.subtotal)
+       .reduce((sum, current) => (sum + current.subtotal), 0).toFixed(2);
+         order={id:orderToreturn.orderid,status:orderToreturn.status ,itemcount:itemcount, items:items , total:parseFloat(sum)};
          
          return order;
       

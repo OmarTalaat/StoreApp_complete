@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/_models/product';
 import { CartService } from 'src/app/_service/cart.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-product-card',
@@ -10,18 +11,20 @@ import { CartService } from 'src/app/_service/cart.service';
 export class ProductCardComponent implements OnInit {
  @Input()  product!:Product
  @Output('update') change: EventEmitter<number> = new EventEmitter<number>();
- count: number = 0;
-  constructor(private cartService:CartService) { }
+ itemcount: number = 0;
+  constructor(private cartService:CartService ,private location: Location) { }
 
   ngOnInit() {
   }
 
 
-
+  back(): void {
+    this.location.back();
+  }
 
   increment() {
-    this.count++;
-    this.change.emit(this.count);
+    this.itemcount++;
+    this.change.emit(this.itemcount);
   }
   addItemToCart( id:any): void {
     let payload = {

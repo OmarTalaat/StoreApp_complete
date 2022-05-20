@@ -20,8 +20,8 @@ const addProduct= async(quantity: number, orderId: number, productId: number) =>
         var item:ItemDetailsDto
         var product:ProductDetailsDto
         product= {id:productToreturn.productid ,name:productToreturn.name ,price:productToreturn.price , url:productToreturn.url}
-        
-           item={id:itemtoreturn.itemid,quantity:itemtoreturn.quantity, product:product}
+        const subtotal = (itemtoreturn.quantity * product.price)
+           item={id:itemtoreturn.itemid,quantity:itemtoreturn.quantity, product:product ,subtotal:subtotal}
            return item
     } catch (err) {
         throw new Error(` you can not add ${productId} to your order : ${err} `)
@@ -38,7 +38,8 @@ const getItem_detailes = async(itemId:number) =>{
         var item:ItemDetailsDto
         var product:ProductDetailsDto
         product ={id:productToreturn.productid, name:productToreturn.name, price:productToreturn.price , url:productToreturn.url}
-        return item={id:itemToreturn.itemid, quantity:itemToreturn.quantity ,product:product  }
+        const subtotal = (itemToreturn.quantity * product.price)
+        return item={id:itemToreturn.itemid, quantity:itemToreturn.quantity ,product:product , subtotal:subtotal }
         } else {
             return null
         }
@@ -56,7 +57,8 @@ const getItemListInOrder = async(orderId:number) => {
             var product:ProductDetailsDto
             const productToreturn = await productRepo.getproductByid(item.productid)
             product ={id:productToreturn.productid, name:productToreturn.name, price:productToreturn.price , url:productToreturn.url}
-            itemdetails={id:item.itemid, quantity:item.quantity ,product:product}
+            const subtotal = (item.quantity * product.price)
+            itemdetails={id:item.itemid, quantity:item.quantity ,product:product ,subtotal:subtotal}
             return itemdetails;
         }));
         return items
@@ -76,9 +78,9 @@ const getItemInOrderbyproductandorderid = async(productId: number , orderId:numb
         let product:ProductDetailsDto;
         product={id:productfromrepo.productid , name:productfromrepo.name , 
             url:productfromrepo.url , price:productfromrepo.price ,description:productfromrepo.description}
-
+            const subtotal = (itemfromrepo.quantity * product.price)
             let item:ItemDetailsDto;
-            item={id:itemfromrepo.itemid ,quantity:itemfromrepo.quantity ,product:product}
+            item={id:itemfromrepo.itemid ,quantity:itemfromrepo.quantity ,product:product ,subtotal:subtotal}
         return item
        } else {
            return null
@@ -96,7 +98,8 @@ const update_quantity_Item = async(itemId:number,quantity:number) => {
         product={id:productfromrepo.productid , name:productfromrepo.name , 
             url:productfromrepo.url , price:productfromrepo.price ,description:productfromrepo.description}
             let item:ItemDetailsDto;
-            item={id:update_quantity.itemid ,quantity:update_quantity.quantity ,product:product}
+            const subtotal = (update_quantity.quantity * product.price)
+            item={id:update_quantity.itemid ,quantity:update_quantity.quantity ,product:product , subtotal:subtotal}
         
         return item
     } catch (err) {

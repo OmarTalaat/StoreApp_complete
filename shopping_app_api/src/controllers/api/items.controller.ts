@@ -57,6 +57,26 @@ const addProductToOrder = async(req:Request,res:Response ) => {
     }
 }
 
+
+const getItemsList = async(req:Request,res:Response)=>{
+    try {
+        if (req.params.userId  != req.body.decoded.id) {
+            return res.status(401).send({message: "Unauthorized!"});}
+            const orderId = parseInt(req.params.orderId)
+
+            const items = await itemService.getItemListInOrder(orderId)
+            if (items) {
+
+                res.status(200).json(items)
+            } else {
+                return res.sendStatus(404)
+            }
+    } catch (error) {
+        
+    }
+}
+
+
 const getItem_detailes =async(req:Request,res:Response)=>{
     try {
         if (req.params.userId  != req.body.decoded.id) {
@@ -106,7 +126,8 @@ const items_Controller = {
     addProductToOrder,
     update_quantity_Item,
     removeItem,
-    getItem_detailes
+    getItem_detailes,
+    getItemsList
 }
 
 

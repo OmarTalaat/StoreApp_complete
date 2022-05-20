@@ -17,7 +17,7 @@ export class ProductListResolver implements Resolve<Product[]> {
   products!:Product[]
 
   constructor(private catandproservice: CategoryandproductService,
-    private router: Router, private alertify: AlertifyService , private authService: AuthService) {}
+    private router: Router, private alertify: AlertifyService ) {}
 
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product[]>|any {

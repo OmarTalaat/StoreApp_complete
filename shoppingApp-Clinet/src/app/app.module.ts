@@ -26,9 +26,14 @@ import { CategoryandproductService } from './_service/categoryandproduct.service
 import { JwtModule } from '@auth0/angular-jwt';
 import { ProductListResolver } from './_resolvers/product-list.resolver';
 import { ProductDetailsResolver } from './_resolvers/product-details.resolver';
-import { CartComponent } from './cart/cart/cart.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
 import { CartService } from './_service/cart.service';
+import { ItemDetailsComponent } from './cart/items/item-details/item-details.component';
+import { ItemListComponent } from './cart/items/item-list/item-list.component';
+import { ItemEditComponent } from './cart/items/item-edit/item-edit.component';
+import { OrderDetailsComponent } from './cart/order/order-details/order-details.component';
+import { OrderEditComponent } from './cart/order/order-edit/order-edit.component';
+import { OrderDetailsResolver } from './_resolvers/order-details.resolver';
 
 
 export function tokenGetter() {
@@ -48,8 +53,12 @@ export function tokenGetter() {
       ProductsListComponent,
       CategoryCardComponent,
       CategoryListComponent,
-      CartComponent,
-      CheckoutComponent
+      CheckoutComponent,
+      ItemDetailsComponent,
+      ItemListComponent,
+      ItemEditComponent,
+      OrderDetailsComponent,
+      OrderEditComponent
 
    ],
   imports: [
@@ -76,7 +85,8 @@ export function tokenGetter() {
     CategoryandproductService,
     ProductListResolver,
     ProductDetailsResolver,
-    CartService
+    CartService,
+    OrderDetailsResolver
   ],
   bootstrap: [AppComponent]
 })
