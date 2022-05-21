@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { User } from '../_models/user';
 import { AlertifyService } from '../_service/alertify.service';
 import { AuthService } from '../_service/auth.service';
+import { MessageService } from '../_service/message.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -25,9 +26,13 @@ export class NavBarComponent implements OnInit {
   @Input() quantity: number = 0;
 
   constructor(public authService: AuthService, private alertify: AlertifyService,
-    private router: Router) { }
+    private router: Router , private message:MessageService) { }
 
   ngOnInit() {
+    /* this.message.setCount.subscribe((msg: number) => {
+      this.quantity = (this.quantity + (msg)) < 1 ? 0 : this.quantity + (msg);
+    }) */
+
   }
 
   registerToggel() {
@@ -51,6 +56,8 @@ export class NavBarComponent implements OnInit {
       loggedIn() {
         return this.authService.loggedIn();
      }
+
+
 
 
 

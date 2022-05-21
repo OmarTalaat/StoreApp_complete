@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Item } from 'src/app/_models/item';
 import { Order } from 'src/app/_models/order';
 import { AlertifyService } from 'src/app/_service/alertify.service';
@@ -11,22 +12,47 @@ import { CartService } from 'src/app/_service/cart.service';
 })
 export class ItemEditComponent implements OnInit {
  @Input() item!:Item
- order!:Order
-  @Input() subtotal:number = 0
+ @Input() subtotal:number;
+  @Input() quantity: number;
+  @Input() itemId:number
+ @Input() order!:Order;
+
+    @Output() removeItem: EventEmitter<Item> =   new EventEmitter();
+
+    @Output() public sendquantiyandId =  new EventEmitter<Item>();
 
   constructor(private cartservice:CartService , private alertify:AlertifyService) { }
 
   ngOnInit() {
-    this.subtotal = this.item.subtotal
+    this.subtotal =this.item.subtotal
+    this.quantity =this.item?.quantity
+    this.itemId =this.item?.id
+
+
   }
 
-  getitmedetails() {
-    this.cartservice.getItemdetails(this.order.id ,this.item.id).subscribe(item =>{
-      this.item =item;
-    })
-  }
 
+    increment() {
+        this.quantity++;
+        this.subtotal = parseFloat((this.item.product.price * this.quantity).toFixed(2))
+        this.sendquantiyandId.emit({id:this.item.id , quantity:this.quantity ,subtotal:this.subtotal,product: this.item.product });
 
+      }
+    decrement() {
+      this.quantity--;
+        if (this.quantity < 1) {
+          return alert("can't be in 0")
+        }else{
+
+        this.subtotal = parseFloat((this.item.product.price * this.quantity).toFixed(2))
+        this.sendquantiyandId.emit({id:this.item.id , quantity:this.quantity ,subtotal:this.subtotal,product: this.item.product });
+      }
+    }
+
+    deleteItem(itemId:number){
+
+      this.removeItem.emit({id:this.itemId, quantity:this.quantity ,subtotal:this.subtotal,product: this.item.product })
+    }
 
 
 }

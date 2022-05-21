@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/_models/product';
 import { CartService } from 'src/app/_service/cart.service';
 import { Location } from '@angular/common'
+import { MessageService } from 'src/app/_service/message.service';
+import { Order } from 'src/app/_models/order';
 
 @Component({
   selector: 'app-product-card',
@@ -12,7 +14,7 @@ export class ProductCardComponent implements OnInit {
  @Input()  product!:Product
  @Output('update') change: EventEmitter<number> = new EventEmitter<number>();
  itemcount: number = 0;
-  constructor(private cartService:CartService ,private location: Location) { }
+  constructor(private cartService:CartService ,private location: Location , private message:MessageService) { }
 
   ngOnInit() {
   }
@@ -22,17 +24,15 @@ export class ProductCardComponent implements OnInit {
     this.location.back();
   }
 
-  increment() {
-    this.itemcount++;
-    this.change.emit(this.itemcount);
-  }
+
   addItemToCart( id:any): void {
     let payload = {
       productId: id
     };
     this.cartService.addToCart(payload).subscribe(() => {
 
-      this.increment()
+      this.message.setCount.next(1);
+
     });
   }
 

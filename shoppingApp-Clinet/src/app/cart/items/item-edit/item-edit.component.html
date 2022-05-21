@@ -6,17 +6,20 @@
   <span>
     <div class="input-group number-spinner">
       <span class="input-group-btn">
-        <button class="btn btn-danger "  style="margin-right: 5px;" data-dir="dwn" >
+        <button class="btn btn-danger "  style="margin-right: 5px;" data-dir="dwn" (click)="decrement()" >
           <span class="glyphicon glyphicon-minus">-</span>
         </button>
       </span>
-      <input type="text" class="form-control text-center " style="width: 50px;" min="1" size="1"  value="{{item.quantity}}">
+      <input type="text" class="form-control text-center " style="width: 50px;" min="1" size="1"  value="{{item.quantity}}"
+      [(ngModel)]="quantity"
+      >
       <span class="input-group-btn">
-        <button class="btn btn-success " style="margin-left: 5px;" data-dir="up"  >
+        <button class="btn btn-success " style="margin-left: 5px;" data-dir="up" (click)="increment()" >
           <span class="glyphicon glyphicon-plus" >+</span>
         </button>
       </span>
     </div>
   </span>
-  <span class="text-muted">{{subtotal}}</span>
+  <span class="text-muted">{{this.subtotal}}</span>
+  <span class="glyphicon glyphicon-plus" (click)="deleteItem(this.item.id)"><i class="fa fa-trash" aria-hidden="true"></i></span>
 </li>

@@ -4,6 +4,8 @@ import { Order } from 'src/app/_models/order';
 import { User } from 'src/app/_models/user';
 import { AlertifyService } from 'src/app/_service/alertify.service';
 import { AuthService } from 'src/app/_service/auth.service';
+import { CartService } from 'src/app/_service/cart.service';
+import { MessageService } from 'src/app/_service/message.service';
 
 @Component({
   selector: 'app-order-details',
@@ -13,28 +15,43 @@ import { AuthService } from 'src/app/_service/auth.service';
 export class OrderDetailsComponent implements OnInit {
   order!:Order
    user!:User
-  @Input() itemcount: number =0
-   total:number =0
+   itemcount: number;
+   total:number;
    username!:string
    @Output() itemcountChanged: EventEmitter<number> =   new EventEmitter();
   constructor(private alertify: AlertifyService ,
-    private route: ActivatedRoute,private router: Router ,private authservice:AuthService) { }
+    private route: ActivatedRoute,private router: Router ,private authservice:AuthService , private message:MessageService , private cartservice:CartService) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.order = data['order'];
-      this.itemcount = this.order?.itemcount
+
+        this.itemcount =this.order.itemcount
+
+
       if (this.order?.itemcount > 0) {
         this.alertify.message('thanks for making order with us')
       }
+
+
+
+
    });
    this.username = this.authservice.decodedToken.username
   }
 
 
-  changeitemcount(){
-    this.itemcountChanged.emit(this.itemcount);
+  changeitemcount(data:number){
+
+    this.itemcount = data
+
+
+   /*  if(this.order?.itemcount <= 0) {
+      this.cartservice.deleteOrder(this.order.id).subscribe(()=>{})
+    } */
+   // console.log( 'from order details',this.itemcount )
   }
+
 
 
 }

@@ -98,8 +98,8 @@ const update_quantity_Item = async(itemId:number,quantity:number) => {
         product={id:productfromrepo.productid , name:productfromrepo.name , 
             url:productfromrepo.url , price:productfromrepo.price ,description:productfromrepo.description}
             let item:ItemDetailsDto;
-            const subtotal = (update_quantity.quantity * product.price)
-            item={id:update_quantity.itemid ,quantity:update_quantity.quantity ,product:product , subtotal:subtotal}
+            const subtotal = (update_quantity.quantity * product.price).toFixed(2)
+            item={id:update_quantity.itemid ,quantity:update_quantity.quantity ,product:product , subtotal:parseFloat(subtotal)}
         
         return item
     } catch (err) {

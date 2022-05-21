@@ -102,7 +102,7 @@ const update_quantity_Item =async(req:Request,res:Response)=>{
             const itemId:number = parseInt(req.params.itemId)
             const quantity: number = parseInt(req.body.quantity)
             const update_quantity =await itemService.update_quantity_Item(itemId,quantity)
-            res.status(200).json({item:{id:update_quantity.id, quantity:update_quantity.quantity}})
+            res.status(200).json({item:{id:update_quantity.id, quantity:update_quantity.quantity ,subtotal:parseFloat(update_quantity.subtotal.toFixed(2)) }})
     } catch (err) {
         throw new Error(`can not update item  error:${err}`) 
     }

@@ -1,9 +1,10 @@
 <div *ngFor="let item of items">
-<app-item-edit [item]="item"></app-item-edit>
+<app-item-edit [item]="item"  (sendquantiyandId)="updateItem($event)" (removeItem)="deleteItem($event)"
+  ></app-item-edit>
 
 </div>
 
 <li class="list-group-item d-flex justify-content-between">
-  <span>Total</span>
+  <strong>Total</strong>
   <strong>{{total}}</strong>
 </li>

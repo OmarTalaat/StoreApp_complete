@@ -20,7 +20,7 @@ export class ProductListResolver implements Resolve<Product[]> {
     private router: Router, private alertify: AlertifyService ) {}
 
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product[]>|any {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product[]> {
     return this.catandproservice.getAllproducts(+route.params['id']).pipe(
       catchError(error => {
           this.alertify.error('Proplem retriving data');

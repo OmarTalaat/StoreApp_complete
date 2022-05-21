@@ -20,7 +20,7 @@ export class OrderDetailsResolver implements Resolve<Order> {
     private alertify: AlertifyService , private authService: AuthService) {}
 
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Order> |any {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Order>{
     return this.cartservice.getactiveorder().pipe(
 
       catchError(error => {

@@ -34,6 +34,7 @@ import { ItemEditComponent } from './cart/items/item-edit/item-edit.component';
 import { OrderDetailsComponent } from './cart/order/order-details/order-details.component';
 import { OrderEditComponent } from './cart/order/order-edit/order-edit.component';
 import { OrderDetailsResolver } from './_resolvers/order-details.resolver';
+import { MessageService } from './_service/message.service';
 
 
 export function tokenGetter() {
@@ -86,7 +87,8 @@ export function tokenGetter() {
     ProductListResolver,
     ProductDetailsResolver,
     CartService,
-    OrderDetailsResolver
+    OrderDetailsResolver,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

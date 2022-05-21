@@ -22,7 +22,7 @@ export class ProductDetailsResolver implements Resolve<Product> {
   constructor(private catandproservice: CategoryandproductService, private router: Router,
     private alertify: AlertifyService , private authService: AuthService) {}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Product> | any {
+  resolve(route: ActivatedRouteSnapshot): Observable<Product> {
     return this.catandproservice.getproduct(+route.params['id'],+route.params['productId']).pipe(
       catchError(error => {
           this.alertify.error('Proplem retriving data');
