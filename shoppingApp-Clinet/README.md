@@ -12,7 +12,7 @@ NB: I make Admin panel to be controle fro the app its empty know (like domenstra
 
    If you want to access as Moderator
     username: Moderator
-    password: password   
+    password: password
 
   If you want to access  as user
     make registration
