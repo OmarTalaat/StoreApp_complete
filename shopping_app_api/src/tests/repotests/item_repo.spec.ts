@@ -75,22 +75,24 @@ describe('item Model' , () =>{
     
       it('create method should add a item', async () => {
         const item = await itemrepo.addProduct(quantity,orderid,productId);
-        const result:ItemDetailsDto ={id:item.itemid , quantity:item.quantity, product:product }
+        const result:ItemDetailsDto ={id:item.itemid , quantity:item.quantity, product:product ,subtotal:item.quantity * product.price }
         expect(result).toEqual({
           id: item.itemid,
           quantity: item.quantity,
-          product: product
+          product: product,
+          subtotal: item.quantity * product.price
         });
       });
 
       it('show method should return the correct item', async () => {
         setTimeout(async () => {
           const item = await itemrepo.getItem_detailes(1);
-          const result:ItemDetailsDto ={id:item.itemid , quantity:item.quantity ,product:product }
+          const result:ItemDetailsDto ={id:item.itemid , quantity:item.quantity ,product:product  ,subtotal: item.quantity * product.price}
           expect(result).toEqual({
             id: item.itemid,
           quantity: item.quantity,
-          product:product
+          product:product,
+          subtotal: item.quantity * product.price
           })
         }, 2000);
       });
@@ -114,7 +116,7 @@ describe('item Model' , () =>{
         const itemList:Awaited<ItemListDto[]> =[];
            const items= Promise.all(itemListFromrepo.map( async (item) => {
             let  itemdetails:ItemDetailsDto;
-            itemdetails ={ id: item.itemid, quantity: item.quantity, product:product }
+            itemdetails ={ id: item.itemid, quantity: item.quantity, product:product , subtotal: item.quantity * product.price }
               return itemdetails
           }))
         expect( itemList).toEqual( await items)
@@ -132,7 +134,7 @@ describe('item Model' , () =>{
         const itemList:Awaited<ItemListDto[]> =[];
            const items= Promise.all(itemListFromrepo.map( async (item) => {
             let  itemdetails:ItemDetailsDto;
-            itemdetails ={ id: item.itemid, quantity: item.quantity, product:product }
+            itemdetails ={ id: item.itemid, quantity: item.quantity, product:product , subtotal: item.quantity * product.price }
               return itemdetails
           }))
         expect( itemList).toEqual( await items)
