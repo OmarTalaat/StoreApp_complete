@@ -32,9 +32,9 @@ import { ItemDetailsComponent } from './cart/items/item-details/item-details.com
 import { ItemListComponent } from './cart/items/item-list/item-list.component';
 import { ItemEditComponent } from './cart/items/item-edit/item-edit.component';
 import { OrderDetailsComponent } from './cart/order/order-details/order-details.component';
-import { OrderEditComponent } from './cart/order/order-edit/order-edit.component';
 import { OrderDetailsResolver } from './_resolvers/order-details.resolver';
 import { MessageService } from './_service/message.service';
+import { OrderEditComponent } from './cart/order/order-edit/order-edit.component';
 
 
 export function tokenGetter() {
@@ -60,7 +60,6 @@ export function tokenGetter() {
       ItemEditComponent,
       OrderDetailsComponent,
       OrderEditComponent
-
    ],
   imports: [
     BrowserModule,

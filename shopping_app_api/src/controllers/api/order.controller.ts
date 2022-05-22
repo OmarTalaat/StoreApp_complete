@@ -39,19 +39,37 @@ const getActiveOrder = async(req:Request,res:Response)=> {
     }
 }
 
+const editOrderStatus = async(req:Request,res:Response)=>{
+    try {
+        if (req.params.userId  != req.body.decoded.id) {
+            return res.status(401).send({message: "Unauthorized!"});}
+            const order:OrderEditDto ={
+                id: parseInt(req.params.id),
+                status: req.query.status as string,
+            }
+            const orderedit =await orderservice.edit_order_status(order);
+            res.status(200).json(orderedit)
+        
+    } catch (error) {
+        throw new Error(`can not edit this order ${error}`)
+    }
 
-const editOrderStatus = async(req:Request,res:Response) =>{
+}
+
+
+const editOrderAdress = async(req:Request,res:Response) =>{
     try {
         if (req.params.userId  != req.body.decoded.id) {
             return res.status(401).send({message: "Unauthorized!"});}
       
             const order:OrderEditDto ={
                 id:parseInt(req.params.orderId),
-                status:req.body.status
+                status:  status.Complete,
+                adress:req.body.status
             }
             const orderToEdit = await orderservice.edit_order_status(order);
 
-            res.status(200).json({order:orderToEdit , message:`order status edit to ${order.status}`});
+            res.status(200).json(orderToEdit);
         
     } catch (error) {
         throw new Error(`can not edit this order ${error}`)
@@ -94,7 +112,8 @@ const orders_controller = {
     getActiveOrder,
     editOrderStatus,
     getOrderById,
-    deleteOrder
+    deleteOrder,
+    editOrderAdress
 }
 
 

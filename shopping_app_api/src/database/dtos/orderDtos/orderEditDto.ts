@@ -1,4 +1,5 @@
 export interface OrderEditDto {
     id:number;
-    status:string;
+    status?:string;
+    adress?:string;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/_service/auth.service';
 
 @Component({
   selector: 'app-checkout',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
+  username:string
 
-  constructor() { }
+  constructor( private authservice:AuthService) { }
 
   ngOnInit() {
+    this.username = this.authservice.decodedToken.username
   }
 
 }

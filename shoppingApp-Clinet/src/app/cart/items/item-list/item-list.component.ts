@@ -48,18 +48,21 @@ export class ItemListComponent implements OnInit {
   updateItem(data:Item) {
     this.item = data;
 
+    if (data.quantity > 0) {
+      this.cartservice.editItemQuantit(this.order.id ,data.id ,data).subscribe( next =>{
+        this.cartservice.getAllitemsinorders(this.order.id).subscribe((items:Item[])=>{
+         this.items =items
+          this.sum = parseFloat(items.filter(item => item.subtotal)
+          .reduce((sum, current) => (sum + current.subtotal), 0).toFixed(2))
+        // console.log('out',this.sum)
+         this.total = this.sum
+       })
+ })
+    } else {
+      this.alertify.error('can not let item 0')
+    }
 
-   this.cartservice.editItemQuantit(this.order.id ,data.id ,data).subscribe( next =>{
-         this.cartservice.getAllitemsinorders(this.order.id).subscribe((items:Item[])=>{
-          this.items =items
-           this.sum = parseFloat(items.filter(item => item.subtotal)
-           .reduce((sum, current) => (sum + current.subtotal), 0).toFixed(2))
-         // console.log('out',this.sum)
-          this.total = this.sum
-        })
 
-
-  })
 
 
 

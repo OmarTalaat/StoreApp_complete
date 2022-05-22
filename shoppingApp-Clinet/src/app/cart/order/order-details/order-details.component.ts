@@ -26,7 +26,7 @@ export class OrderDetailsComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.order = data['order'];
 
-        this.itemcount =this.order.itemcount
+        this.itemcount =this.order?.itemcount
 
 
       if (this.order?.itemcount > 0) {
@@ -34,22 +34,16 @@ export class OrderDetailsComponent implements OnInit {
       }
 
 
-
-
    });
-   this.username = this.authservice.decodedToken.username
+
   }
+
 
 
   changeitemcount(data:number){
 
     this.itemcount = data
 
-
-   /*  if(this.order?.itemcount <= 0) {
-      this.cartservice.deleteOrder(this.order.id).subscribe(()=>{})
-    } */
-   // console.log( 'from order details',this.itemcount )
   }
 
 

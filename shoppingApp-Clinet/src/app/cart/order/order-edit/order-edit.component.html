@@ -1,3 +1,39 @@
-<p>
-  order-edit works!
-</p>
+<h4 class="mb-3">Billing address</h4>
+            <form class="needs-validation"  #editForm="ngForm" id="editForm" (ngSubmit)="updateOrder()">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <label for="firstName" class="form-label">User name</label>
+                        <input type="text" class="form-control" disabled id="firstName" placeholder="" value="{{username}}" required>
+                        <div class="invalid-feedback">
+                            Valid first name is required.
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-10">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address"
+                         placeholder="Please Add your Address" required name="adress" [(ngModel)]="order.adress">
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+            </form>
+            <button class="w-100 btn btn-danger btn-lg" [disabled]="!editForm.dirty" form="editForm"
+            style="margin-top: 20px;" >Complete your order</button>
+
+       -  <!--     for test validity of form
+            <p>Form value : {{editForm.value | json}}</p>
+            <p>Form satus:{{editForm.status | json}}</p>
+ -->

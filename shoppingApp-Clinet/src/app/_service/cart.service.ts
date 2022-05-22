@@ -44,6 +44,15 @@ removeItem(orderId:number, itemId:number) {
   return this.http.delete<Item>(this.baseUrl + 'users/' + this.authService.decodedToken.id +'/orders/'+orderId+'/items/' +itemId)
 }
 
+getorderbyid(orderId:number) :Observable<Order>{
+  return this.http.get<Order>(this.baseUrl + 'users/' + this.authService.decodedToken.id +'/orders/'+orderId);
+}
+
+
+
+addadressToOrder(orderId:number ,order:Order) {
+  return this.http.put<Order>(this.baseUrl + 'users/' + this.authService.decodedToken.id +'/orders/'+orderId  ,order);
+}
 deleteOrder (orderId:number) {
   return this.http.delete<Order>(this.baseUrl + 'users/' + this.authService.decodedToken.id +'/orders/'+orderId)
 }

@@ -36,8 +36,14 @@ export const appRoutes: Routes = [
                   ]}
                   ]}
             ]},
-            {path:'cart' ,component:OrderDetailsComponent , resolve: {order:OrderDetailsResolver}},
-            {path:'checkform' , component:CheckoutComponent}
+            {path:'cart' ,
+                children:[
+                  {path:'' , component:OrderDetailsComponent , resolve: {order:OrderDetailsResolver}},
+                  {path:':id' ,component:CheckoutComponent}
+                ]
+            }
+
+
 
 
 

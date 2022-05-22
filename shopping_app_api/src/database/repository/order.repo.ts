@@ -73,7 +73,7 @@ const getOrderById = async(orderId:number):Promise<Order>=>{
 
 
 
-const Edit_Order_status = async(ordertocreate:OrderEditDto)=>{
+const Edit_Order_status = async(ordertocreate:OrderEditDto) :Promise<Order>=>{
     try {
         const conn = await Client.connect();
         const sql = `UPDATE orders  SET status='${ordertocreate.status}' WHERE orderid=${ordertocreate.id} RETURNING *;`
@@ -86,7 +86,18 @@ const Edit_Order_status = async(ordertocreate:OrderEditDto)=>{
           }
 }
 
-
+const Edit_Order_adress = async(ordertocreate:OrderEditDto):Promise<Order>=>{
+    try {
+        const conn = await Client.connect();
+        const sql = `UPDATE orders  SET adress='${ordertocreate.adress}' WHERE orderid=${ordertocreate.id} RETURNING *;`
+        const result = await conn.query(sql);
+            const order = result.rows[0]
+        conn.release();
+        return order
+          } catch (err) {
+              throw new Error(`from repo Could not add new orders. Error: ${err}`)
+          }
+}
 
 
 const deleteorder =async(orderId:number)=>{
@@ -117,7 +128,8 @@ const orderRepo ={
     getOrdersByStatus,
     getOrderById,
     getItems_in_order,
-    deleteorder
+    deleteorder,
+    Edit_Order_adress
 }
 
 

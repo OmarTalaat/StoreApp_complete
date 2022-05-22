@@ -6,6 +6,7 @@ export interface OrderDetailsDto {
     status:string;
     itemcount?:number;
     total?:number;
+    adress?:string;
     items?:ItemListDto[];
 
 }

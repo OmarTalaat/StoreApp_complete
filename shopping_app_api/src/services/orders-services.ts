@@ -37,7 +37,8 @@ const get_order_bystatus = async( status:string , userId:number ) =>{
        
        const sum = items!.filter(item => item.subtotal)
        .reduce((sum, current) => (sum + current.subtotal), 0).toFixed(2);
-         order={id:orderfromrepo.orderid,status:orderfromrepo.status ,itemcount:itemcount, items:items ,total: parseFloat(sum)};
+         order={id:orderfromrepo.orderid,status:orderfromrepo.status ,
+            itemcount:itemcount, items:items ,total: parseFloat(sum) , adress:orderfromrepo.adress};
         
         return order
        } else {
@@ -56,7 +57,18 @@ const edit_order_status =async(orderToEdit:OrderEditDto)=>{
         const orderToreturn = await orderRepo.Edit_Order_status(orderToEdit);
 
         var order:OrderToretuenDto;
-        return order={id:orderToreturn.id , status:orderToreturn.status}
+        return order={id:orderToreturn.orderid , status:orderToreturn.status  , adress: orderToreturn.adress}
+    } catch (err) {
+        throw new Error(`you can not edit your order due to ${err}`)
+    }
+}
+
+const edit_order_Adress =async(orderToEdit:OrderEditDto)=>{
+    try {
+        const orderToreturn = await orderRepo.Edit_Order_adress(orderToEdit);
+
+        var order:OrderToretuenDto;
+        return order={id:orderToreturn.orderid , status:orderToreturn.status  ,adress:orderToreturn.adress}
     } catch (err) {
         throw new Error(`you can not edit your order due to ${err}`)
     }
@@ -73,7 +85,8 @@ const get_order_byId =async(orderId:number) => {
        var items= await itemService.getItemListInOrder(orderId);
        const sum = items!.filter(item => item.subtotal)
        .reduce((sum, current) => (sum + current.subtotal), 0).toFixed(2);
-         order={id:orderToreturn.orderid,status:orderToreturn.status ,itemcount:itemcount, items:items , total:parseFloat(sum)};
+         order={id:orderToreturn.orderid,status:orderToreturn.status ,itemcount:itemcount, items:items ,
+             total:parseFloat(sum) , adress:orderToreturn.adress};
          
          return order;
       
@@ -101,7 +114,8 @@ const orderservice = {
     get_order_bystatus,
     edit_order_status,
     get_order_byId,
-    deleteOrder
+    deleteOrder,
+    edit_order_Adress
 }
 
 

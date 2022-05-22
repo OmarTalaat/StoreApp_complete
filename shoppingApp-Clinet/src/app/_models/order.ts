@@ -5,6 +5,6 @@ export interface Order {
   status:string;
   itemcount:number;
   total:number;
-
+  adress:string;
   items:Item[];
 }
