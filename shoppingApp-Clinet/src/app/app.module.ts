@@ -35,6 +35,12 @@ import { OrderDetailsComponent } from './cart/order/order-details/order-details.
 import { OrderDetailsResolver } from './_resolvers/order-details.resolver';
 import { MessageService } from './_service/message.service';
 import { OrderEditComponent } from './cart/order/order-edit/order-edit.component';
+import { AdminNavComponent } from './admin/admin-nav/admin-nav.component';
+import { AdminProductsMangementComponent } from './admin/admin-products-mangement/admin-products-mangement.component';
+import { PhotoMangementComponent } from './admin/photo-mangement/photo-mangement.component';
+import { UserListComponent } from './admin/user-list/user-list.component';
+import { UsersMangementComponent } from './admin/users-mangement/users-mangement.component';
+import { CategoriesMangementComponent } from './admin/categories-mangement/categories-mangement.component';
 
 
 export function tokenGetter() {
@@ -59,7 +65,13 @@ export function tokenGetter() {
       ItemListComponent,
       ItemEditComponent,
       OrderDetailsComponent,
-      OrderEditComponent
+      OrderEditComponent,
+      AdminNavComponent,
+      AdminProductsMangementComponent,
+      PhotoMangementComponent,
+      UserListComponent,
+      UsersMangementComponent,
+      CategoriesMangementComponent
    ],
   imports: [
     BrowserModule,

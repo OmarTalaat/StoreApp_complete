@@ -1,4 +1,10 @@
 import { Routes } from "@angular/router";
+import { AdminNavComponent } from "./admin/admin-nav/admin-nav.component";
+import { AdminProductsMangementComponent } from "./admin/admin-products-mangement/admin-products-mangement.component";
+import { CategoriesMangementComponent } from "./admin/categories-mangement/categories-mangement.component";
+import { PhotoMangementComponent } from "./admin/photo-mangement/photo-mangement.component";
+import { UserListComponent } from "./admin/user-list/user-list.component";
+import { UsersMangementComponent } from "./admin/users-mangement/users-mangement.component";
 import { CheckoutComponent } from "./cart/checkout/checkout.component";
 import { OrderDetailsComponent } from "./cart/order/order-details/order-details.component";
 import { CategoryListComponent } from "./categories/category-list/category-list.component";
@@ -41,7 +47,15 @@ export const appRoutes: Routes = [
                   {path:'' , component:OrderDetailsComponent , resolve: {order:OrderDetailsResolver}},
                   {path:':id' ,component:CheckoutComponent}
                 ]
-            }
+            },
+            {path:'admin' ,  component: AdminNavComponent , children: [
+              { path: '', redirectTo: 'productsmangement', pathMatch: 'full' },
+              {path: 'productsmangement' , component: AdminProductsMangementComponent, data: {roles: ['Admin', 'Moderator']}},
+              {path: 'photoAproval', component: PhotoMangementComponent , data: {roles: ['Admin', 'Moderator']}},
+              {path: 'userslist', component: UserListComponent , data: {roles: ['Admin', 'Moderator']}},
+              { path: 'userRoles', component: UsersMangementComponent , data: {roles: ['Admin']}},
+              {path: 'categorylist', component: CategoriesMangementComponent , data: {roles: ['Admin', 'Moderator']}}
+            ]}
 
 
 

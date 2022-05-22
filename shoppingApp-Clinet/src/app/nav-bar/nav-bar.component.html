@@ -18,8 +18,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav" routerLinkActive="active" *ngIf="!loggedIn()">
         <li class="active"><a href="/home" class="nav-link" routerLink="home">Home </a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a  class="nav-link">About</a></li>
+        <li><a  class="nav-link">Contact</a></li>
       </ul>
 
 
@@ -92,18 +92,11 @@
 
         <ul class="dropdown-menu dropdown-menu-right mt-2" *dropdownMenu>
 
-        <li role="menuitem  " dropdown triggers="mouseover" class="dropleft "  placement="left" container="body">
-          <a aria-controls="dropdown " dropdownToggle class="dropdown-item text-dark dropdown-toggle" tabindex="-1" (click)="false"><i class="fa fa-plus" aria-hidden="true"></i>Add Details <span class="caret-left"></span></a>
-          <ul  *dropdownMenu  class="dropdown-menu-submenu "  role="menu">
-             <li role="menuitem" [routerLink]="['/family/add']" ><a class="dropdown-item text-dark" ><i class="fa fa-users" aria-hidden="true"></i>Add Family</a></li>
-            <!-- <li role="menuitem" [routerLink]="['/AddDetails']" ><a class="dropdown-item text-dark" ><i class="fa fa-child" aria-hidden="true"></i>Add Child</a></li> -->
 
-          </ul>
-        </li>
 
         <div class="dropdown-divider"></div>
-        <li class="dropdown-item" [routerLink]="['/member/details']" ><i class="fa fa-user"></i> My profile</li>
-          <li class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> edit profile</li>
+        <li class="dropdown-item"  ><i class="fa fa-user"></i> My profile</li>
+          <li class="dropdown-item" ><i class="fa fa-user"></i> edit profile</li>
 
       <div class="dropdown-divider"></div>
           <li class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>logout</li>
