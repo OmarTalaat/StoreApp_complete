@@ -47,12 +47,9 @@ const login = async (req:Request, res:Response,next:NextFunction) =>{
         if (usertoreturn) {
             return res.status(200).json(usertoreturn);
         } else {
-            res.sendStatus(401);
+            res.sendStatus(401).json('Somthing rong with username or passord');
         }
-        
 
-        
-        
     } catch (error) {
         throw new Error(`you can not login due to: ${error}`)
     }
