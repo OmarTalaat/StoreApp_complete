@@ -63,7 +63,19 @@ describe('order Model' , ()=> {
         setTimeout(async () => {
             
         const addorder = await orderRepo.createOrder(status.Active ,userId);
-          const updateorder = await orderRepo.Edit_Order_status({id:addorder.orderid ,status:status.Complete});
+          const updateorder = await orderRepo.Edit_Order_status({
+            id:addorder.orderid ,
+            status:status.Complete,
+            adress: 'example test of adress',
+            countryName: 'country test',
+            zip: '12365',
+            nameoncard: 'name card test' ,
+            creditcardNumber: '123654786',
+            cvv: 'cvv test',
+            exirationDate:'test date',
+            total:20
+            
+          });
           const result:OrderDetailsDto ={id:updateorder.orderid , status:updateorder.status }
           expect(result).toEqual({
             id: updateorder.orderid,

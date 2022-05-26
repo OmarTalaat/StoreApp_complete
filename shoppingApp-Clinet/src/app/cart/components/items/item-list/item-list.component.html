@@ -1,5 +1,5 @@
 <div *ngFor="let item of items">
-<app-item-edit [item]="item"  (sendquantiyandId)="updateItem($event)" (removeItem)="deleteItem($event)"
+<app-item-edit [item]="item" [(order)] ="order" (sendquantiyandId)="updateItem($event)" (removeItem)="deleteItem($event)"
   ></app-item-edit>
 
 </div>

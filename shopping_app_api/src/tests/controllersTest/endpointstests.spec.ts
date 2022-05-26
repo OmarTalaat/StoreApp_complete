@@ -307,7 +307,16 @@ describe('All Endpoints For The App' ,async () =>{
                 
                         it('edit order status',  ()=>{
                             let orderedit:OrderEditDto;
-                            orderedit={id:orderId ,status:'Complete'}
+                            orderedit={id:orderId ,
+                                        status:'Complete',
+                                        adress: 'example test of adress',
+                                        countryName: 'country test',
+                                        zip: '12365',
+                                        nameoncard: 'name card test' ,
+                                        creditcardNumber: '123654786',
+                                        cvv: 'cvv test',
+                                        exirationDate:'test date',
+                                        total:20}
                           setTimeout(() => {
                             request
                             .put(`/api/users/${userId}/orders/${orderId}`)

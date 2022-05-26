@@ -11,7 +11,7 @@ const orders = express.Router({mergeParams: true});
 
 orders.post('',orders_controller.addOrder);
 orders.get('',orders_controller.getActiveOrder);
-orders.put('/:orderId',orders_controller.editOrderAdress);
+orders.put('/:orderId',orders_controller.editOrderStatus);
 
 
 orders.get('/:orderId',orders_controller.getOrderById);

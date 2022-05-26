@@ -28,13 +28,14 @@ export class OrderDetailsComponent implements OnInit {
 
         this.itemcount =this.order?.itemcount
 
-
       if (this.order?.itemcount > 0) {
         this.alertify.message('thanks for making order with us')
       }
 
 
    });
+
+
 
   }
 

@@ -45,10 +45,12 @@ export class ItemListComponent implements OnInit {
 
 
 
+
   updateItem(data:Item) {
     this.item = data;
+    console.log(data)
 
-    if (data.quantity > 0) {
+     if (data.quantity > 0) {
       this.cartservice.editItemQuantit(this.order.id ,data.id ,data).subscribe( next =>{
         this.cartservice.getAllitemsinorders(this.order.id).subscribe((items:Item[])=>{
          this.items =items

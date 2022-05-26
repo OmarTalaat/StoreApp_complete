@@ -14,8 +14,7 @@
                        type="text" class="form-control has-danger" formControlName="username" placeholder="Username"
                        [ngClass]="{
                           'is-invalid': f['username'].touched && f['username'].errors ,
-                          'is-valid': f['username'].valid}"
-                          >
+                          'is-valid': f['username'].valid}">
                           <div class="invalid-feedback">
                             <small *ngIf="f['username'].errors?.['required']" class="text-danger">Please choose a username.</small>
                             <small *ngIf="f['username'].errors?.['pattern']" class="text-danger">

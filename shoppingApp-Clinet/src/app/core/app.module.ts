@@ -43,6 +43,7 @@ import { CategoryService } from '../categories/services/category.service';
 import { OrderEditComponent } from '../cart/components/order/order-edit/order-edit.component';
 import { ProductDetailsResolver } from '../products/resolvers/product-details.resolver';
 import { ProductListResolver } from '../products/resolvers/product-list.resolver';
+import { CreditCardDirectivesModule } from 'angular-cc-library';
 
 
 export function tokenGetter() {
@@ -82,6 +83,7 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    CreditCardDirectivesModule,
     BsDropdownModule.forRoot(),
     JwtModule.forRoot({
       config: {

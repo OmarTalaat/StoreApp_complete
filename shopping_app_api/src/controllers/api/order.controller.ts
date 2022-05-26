@@ -44,10 +44,21 @@ const editOrderStatus = async(req:Request,res:Response)=>{
         if (req.params.userId  != req.body.decoded.id) {
             return res.status(401).send({message: "Unauthorized!"});}
             const order:OrderEditDto ={
-                id: parseInt(req.params.id),
-                status: req.query.status as string,
+                id: parseInt(req.params.orderId),
+                adress:req.body.adress,
+                status: req.body.status,
+                countryName:req.body.countryName,
+                creditcardNumber: req.body.creditcardNumber,
+                cvv:req.body.cvv,
+                exirationDate:req.body.exirationDate,
+                nameoncard:req.body.nameoncard,
+                total:parseFloat(req.body.total),
+                zip:req.body.zip
             }
-            const orderedit =await orderservice.edit_order_status(order);
+           
+           
+        
+              const orderedit =await orderservice.edit_order_status(order);
             res.status(200).json(orderedit)
         
     } catch (error) {
@@ -63,9 +74,15 @@ const editOrderAdress = async(req:Request,res:Response) =>{
             return res.status(401).send({message: "Unauthorized!"});}
       
             const order:OrderEditDto ={
-                id:parseInt(req.params.orderId),
-                status:  status.Complete,
-                adress:req.body.status
+                id: parseInt(req.params.id),
+                status: req.body.status,
+                countryName:req.body.countryName,
+                creditcardNumber: req.body.creditcardNumber,
+                cvv:req.body.cvv,
+                exirationDate:req.body.exirationDate,
+                nameoncard:req.body.nameoncard,
+                total:req.body.total,
+                zip:req.body.zip
             }
             const orderToEdit = await orderservice.edit_order_status(order);
 

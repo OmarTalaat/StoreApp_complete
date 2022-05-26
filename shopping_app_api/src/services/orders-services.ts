@@ -57,7 +57,16 @@ const edit_order_status =async(orderToEdit:OrderEditDto)=>{
         const orderToreturn = await orderRepo.Edit_Order_status(orderToEdit);
 
         var order:OrderToretuenDto;
-        return order={id:orderToreturn.orderid , status:orderToreturn.status  , adress: orderToreturn.adress}
+        return order={id:orderToreturn.orderid , 
+                      status:orderToreturn.status, 
+                      adress: orderToreturn.adress,
+                      countryName: orderToreturn.countryName,
+                      zip: orderToreturn.zip,
+                      nameoncard: orderToreturn.nameoncard,
+                     creditcardNumber: orderToreturn.creditcardNumber,
+                     cvv:orderToreturn.cvv,
+                     exirationDate: orderToreturn.exirationDate,
+                     total: orderToreturn.total}
     } catch (err) {
         throw new Error(`you can not edit your order due to ${err}`)
     }
@@ -68,7 +77,18 @@ const edit_order_Adress =async(orderToEdit:OrderEditDto)=>{
         const orderToreturn = await orderRepo.Edit_Order_adress(orderToEdit);
 
         var order:OrderToretuenDto;
-        return order={id:orderToreturn.orderid , status:orderToreturn.status  ,adress:orderToreturn.adress}
+        return order={
+                      id:orderToreturn.orderid , 
+                      status:orderToreturn.status, 
+                      adress: orderToreturn.adress,
+                      countryName: orderToreturn.countryName,
+                      zip: orderToreturn.zip,
+                      nameoncard: orderToreturn.nameoncard,
+                     creditcardNumber:orderToreturn.creditcardNumber,
+                     cvv:orderToreturn.cvv,
+                     exirationDate: orderToreturn.exirationDate,
+                     total: orderToreturn.total
+        }
     } catch (err) {
         throw new Error(`you can not edit your order due to ${err}`)
     }

@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Item } from 'src/app/cart/models/item';
 import { Order } from 'src/app/cart/models/order';
 import { AlertifyService } from 'src/app/core/services/alertify.service';
@@ -16,6 +15,8 @@ export class ItemEditComponent implements OnInit {
   @Input() quantity: number;
   @Input() itemId:number
  @Input() order!:Order;
+ items:Item[]
+ sum:number;
 
     @Output() removeItem: EventEmitter<Item> =   new EventEmitter();
 
@@ -29,25 +30,15 @@ export class ItemEditComponent implements OnInit {
     this.itemId =this.item?.id
 
 
+
+  }
+
+  quantityChanged(q:number) {
+    this.quantity =q
+    this.sendquantiyandId.emit({id:this.item.id , quantity:q,subtotal:this.subtotal,product: this.item.product });
   }
 
 
-    increment() {
-        this.quantity++;
-        this.subtotal = parseFloat((this.item.product.price * this.quantity).toFixed(2))
-        this.sendquantiyandId.emit({id:this.item.id , quantity:this.quantity ,subtotal:this.subtotal,product: this.item.product });
-
-      }
-    decrement() {
-      this.quantity--;
-        if (this.quantity < 1) {
-          return alert("can't be in 0")
-        }else{
-
-        this.subtotal = parseFloat((this.item.product.price * this.quantity).toFixed(2))
-        this.sendquantiyandId.emit({id:this.item.id , quantity:this.quantity ,subtotal:this.subtotal,product: this.item.product });
-      }
-    }
 
     deleteItem(itemId:number){
 

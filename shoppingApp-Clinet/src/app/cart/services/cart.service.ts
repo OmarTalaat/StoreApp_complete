@@ -50,7 +50,7 @@ getorderbyid(orderId:number) :Observable<Order>{
 
 
 
-addadressToOrder(orderId:number ,order:Order) {
+orderUpdate(orderId:number ,order:Order) {
   return this.http.put<Order>(this.baseUrl + 'users/' + this.authService.decodedToken.id +'/orders/'+orderId  ,order);
 }
 deleteOrder (orderId:number) {
