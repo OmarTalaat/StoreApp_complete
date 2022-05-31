@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "frontend:install": "cd shoppingApp-Clinet && npm install",
+        "backend:install": "cd shopping_app_api && yarn ",
+        "backend:build": "cd shopping_app_api && yarn run build",
+        "frontend:build": "cd shoppingApp-Clinet && ng build"
+    }
+}
