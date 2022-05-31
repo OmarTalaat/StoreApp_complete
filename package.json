@@ -3,6 +3,6 @@
         "frontend:install": "cd shoppingApp-Clinet && npm install",
         "backend:install": "cd shopping_app_api && npm install",
         "backend:build": "cd shopping_app_api && npm run build",
-        "frontend:build": "cd shoppingApp-Clinet && node_modules/angular-cli/bin/ng build"
+        "frontend:build": "cd shoppingApp-Clinet && npm run build"
     }
 }
