@@ -7,9 +7,7 @@
     "start": "node ./dist/server.js",
     "build": "rimraf -rf ./dist &&npx  tsc",
     "test": "  db-migrate up --env test up &&  npx tsc  && Env=test jasmine && db-migrate reset  --env test ",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "zip": "yarn build && cd www && zip -r -D ../app.zip *",
-    "deploy": "chmod +x ./bin/deploy.sh"
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"" 
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
