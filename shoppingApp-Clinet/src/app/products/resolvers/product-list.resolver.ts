@@ -5,7 +5,7 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 import { Product } from 'src/app/products/models/product';
 import { CategoryandproductService } from '../service/product.service';
 

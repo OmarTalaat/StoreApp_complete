@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Category } from 'src/app/categories/models/category';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 import { CategoryandproductService } from 'src/app/products/service/product.service';
 import { CategoryService } from '../../services/category.service';
 

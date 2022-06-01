@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/categories/models/category';
 import { Product } from 'src/app/products/models/product';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 import { Location } from '@angular/common'
 
 @Component({

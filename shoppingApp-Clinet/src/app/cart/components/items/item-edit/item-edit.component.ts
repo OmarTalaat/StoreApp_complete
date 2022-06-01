@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Item } from 'src/app/cart/models/item';
 import { Order } from 'src/app/cart/models/order';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 import { CartService } from 'src/app/cart/services/cart.service';
 
 @Component({

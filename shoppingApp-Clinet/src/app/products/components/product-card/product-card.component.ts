@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/products/models/product';
 import { CartService } from 'src/app/cart/services/cart.service';
 import { Location } from '@angular/common'
-import { MessageService } from 'src/app/core/services/message.service';
+import { MessageService } from 'src/app/services/message.service';
 import { Order } from 'src/app/cart/models/order';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-product-card',

@@ -1,10 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ConfirmedValidator } from '../../validator/validate-password';
-import { User } from '../../../member/model/user';
-import { AlertifyService } from '../../services/alertify.service';
-import { AuthService } from '../../services/auth.service';
+import { ConfirmedValidator } from '../validator/validate-password';
+import { User } from '../member/model/user';
+import { AlertifyService } from '../services/alertify.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',

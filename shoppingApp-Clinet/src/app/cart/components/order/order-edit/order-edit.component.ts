@@ -2,8 +2,8 @@ import { Component, EventEmitter, HostListener, Input, OnInit, Output, ViewChild
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/cart/models/order';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/cart/services/cart.service';
 import {default as countryList} from '../../../../../assets/countryName.json';
 

@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angu
 import { NgForm } from '@angular/forms';
 import { Item } from 'src/app/cart/models/item';
 import { Order } from 'src/app/cart/models/order';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 import { CartService } from 'src/app/cart/services/cart.service';
-import { MessageService } from 'src/app/core/services/message.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-item-list',

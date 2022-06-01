@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Order } from 'src/app/cart/models/order';
 import { User } from 'src/app/member/model/user';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/cart/services/cart.service';
-import { MessageService } from 'src/app/core/services/message.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-order-details',

@@ -1,7 +1,7 @@
 import { Directive, Input } from '@angular/core';
 import { AbstractControl, NG_ASYNC_VALIDATORS, ValidationErrors } from '@angular/forms';
 import { map, Observable } from 'rxjs';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Directive({
   selector: '[UniqueUserName]',

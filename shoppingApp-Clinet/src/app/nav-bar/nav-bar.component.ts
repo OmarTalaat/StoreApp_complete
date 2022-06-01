@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { User } from '../../../member/model/user';
-import { AlertifyService } from '../../services/alertify.service';
-import { AuthService } from '../../services/auth.service';
-import { MessageService } from '../../services/message.service';
+import { User } from '../member/model/user';
+import { AlertifyService } from '../services/alertify.service';
+import { AuthService } from '../services/auth.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-nav-bar',

@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Item } from '../models/item';
 import { Order } from '../models/order';
 import { Product } from '../../products/models/product';
-import { AuthService } from '../../core/services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Injectable({
   providedIn: 'root'

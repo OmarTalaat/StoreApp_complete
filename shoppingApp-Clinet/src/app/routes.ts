@@ -1,20 +1,20 @@
 import { Routes } from "@angular/router";
-import { AdminNavComponent } from "../../admin/components/admin-nav/admin-nav.component";
-import { AdminProductsMangementComponent } from "../../admin/components/admin-products-mangement/admin-products-mangement.component";
-import { CategoriesMangementComponent } from "../../admin/components/categories-mangement/categories-mangement.component";
-import { PhotoMangementComponent } from "../../admin/components/photo-mangement/photo-mangement.component";
-import { UserListComponent } from "../../admin/components/user-list/user-list.component";
-import { UsersMangementComponent } from "../../admin/components/users-mangement/users-mangement.component";
-import { CheckoutComponent } from "../../cart/components/checkout/checkout.component";
-import { OrderDetailsComponent } from "../../cart/components/order/order-details/order-details.component";
-import { CategoryListComponent } from "../../categories/components/category-list/category-list.component";
-import { HomeComponent } from "../components/home/home.component";
-import { ProductDetailsComponent } from "../../products/components/product-details/product-details.component";
-import { ProductsListComponent } from "../../products/components/products-list/products-list.component";
+import { AdminNavComponent } from "./admin/components/admin-nav/admin-nav.component";
+import { AdminProductsMangementComponent } from "./admin/components/admin-products-mangement/admin-products-mangement.component";
+import { CategoriesMangementComponent } from "./admin/components/categories-mangement/categories-mangement.component";
+import { PhotoMangementComponent } from "./admin/components/photo-mangement/photo-mangement.component";
+import { UserListComponent } from "./admin/components/user-list/user-list.component";
+import { UsersMangementComponent } from "./admin/components/users-mangement/users-mangement.component";
+import { CheckoutComponent } from "./cart/components/checkout/checkout.component";
+import { OrderDetailsComponent } from "./cart/components/order/order-details/order-details.component";
+import { CategoryListComponent } from "./categories/components/category-list/category-list.component";
+import { HomeComponent } from "./home/home.component";
+import { ProductDetailsComponent } from "./products/components/product-details/product-details.component";
+import { ProductsListComponent } from "./products/components/products-list/products-list.component";
 
-import { RegisterComponent } from "../components/register/register.component";
-import { AuthGuard } from "../guards/auth.guard";
-import { OrderDetailsResolver } from "../../cart/resolvers/order-details.resolver";
+import { RegisterComponent } from "./register/register.component";
+import { AuthGuard } from "./guards/auth.guard";
+import { OrderDetailsResolver } from "./cart/resolvers/order-details.resolver";
 import { ProductListResolver } from "src/app/products/resolvers/product-list.resolver";
 import { ProductDetailsResolver } from "src/app/products/resolvers/product-details.resolver";
 

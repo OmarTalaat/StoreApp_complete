@@ -5,8 +5,8 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
-import { AlertifyService } from 'src/app/core/services/alertify.service';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Product } from 'src/app/products/models/product';
 import { CategoryandproductService } from '../service/product.service';
 

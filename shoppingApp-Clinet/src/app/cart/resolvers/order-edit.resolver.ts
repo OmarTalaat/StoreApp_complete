@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { Order } from '../models/order';
-import { AlertifyService } from '../../core/services/alertify.service';
+import { AlertifyService } from '../../services/alertify.service';
 import { CartService } from '../services/cart.service';
 
 @Injectable({
