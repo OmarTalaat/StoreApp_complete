@@ -47,7 +47,7 @@
  */
 import 'zone.js';  // Included with Angular CLI.
 
-
+import 'zone.js/plugins/zone-error';
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */

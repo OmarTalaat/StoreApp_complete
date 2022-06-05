@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HasRoleDirective } from '../app/shared/directives/hasRole.directive';
 import { UserService } from '../app/member/service/user.service';
 import { UniqueUserNameDirective } from '../app/shared/directives/uniqueUserName.directive';
@@ -45,6 +45,7 @@ import { ProductListResolver } from '../app/products/resolvers/product-list.reso
 import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { AuthInterceptor } from './guards/auth.interceptor';
 
 
 
@@ -53,7 +54,7 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
       NavBarComponent,
       RegisterComponent,
@@ -107,7 +108,8 @@ export function tokenGetter() {
     CartService,
     OrderDetailsResolver,
     MessageService,
-    CategoryService
+    CategoryService,
+    {provide: HTTP_INTERCEPTORS , useClass:AuthInterceptor , multi: true}
   ],
   bootstrap: [AppComponent]
 })
