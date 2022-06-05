@@ -29,7 +29,9 @@ users.put("/:userId", user_controller.updateUser);
 users.post("/:userId/addproduct",items_Controller.addProductToOrder)
 users.use("/:userId/categories", category);
 users.use("/:userId/orders",orders)
-
+users.get("/:userId/categories", async (req, res) => {
+    res.send("/:userId/categories");
+  });
 
 
 
