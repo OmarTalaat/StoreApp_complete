@@ -46,6 +46,7 @@ import { CreditCardDirectivesModule } from 'angular-cc-library';
 import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AuthInterceptor } from './guards/auth.interceptor';
+import { AboutusComponent } from './aboutus/aboutus.component';
 
 
 
@@ -54,7 +55,7 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       NavBarComponent,
       RegisterComponent,
@@ -78,7 +79,8 @@ export function tokenGetter() {
       UsersMangementComponent,
       CategoriesMangementComponent,
       HomeComponent,
-      ContactusComponent
+      ContactusComponent,
+      AboutusComponent
    ],
   imports: [
     BrowserModule,

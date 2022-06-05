@@ -17,7 +17,8 @@ import { OrderDetailsResolver } from "./cart/resolvers/order-details.resolver";
 import { ProductListResolver } from "src/app/products/resolvers/product-list.resolver";
 import { ProductDetailsResolver } from "src/app/products/resolvers/product-details.resolver";
 import { HomeComponent } from "./home/home.component";
-import { ContactusComponent } from "./contactus/contactus.component";
+import { AboutusComponent } from "./aboutus/aboutus.component";
+
 
 
 
@@ -27,7 +28,7 @@ import { ContactusComponent } from "./contactus/contactus.component";
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path:'contactus' ,component:ContactusComponent},
+  {path:'aboutus' ,component:AboutusComponent},
   {path:'sinup' ,component:RegisterComponent},
 
    {path: '',
