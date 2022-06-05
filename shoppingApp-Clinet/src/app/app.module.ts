@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from '../app/app.component';
-import { HomeComponent } from '../app/home/home.component';
 import { appRoutes } from '../app/routes';
 import { NavBarComponent } from '../app/nav-bar/nav-bar.component';
 import { AuthGuard } from '../app/guards/auth.guard';
@@ -44,6 +43,9 @@ import { OrderEditComponent } from '../app/cart/components/order/order-edit/orde
 import { ProductDetailsResolver } from '../app/products/resolvers/product-details.resolver';
 import { ProductListResolver } from '../app/products/resolvers/product-list.resolver';
 import { CreditCardDirectivesModule } from 'angular-cc-library';
+import { HomeComponent } from './home/home.component';
+import { ContactusComponent } from './contactus/contactus.component';
+
 
 
 export function tokenGetter() {
@@ -51,9 +53,8 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
-    HomeComponent,
       NavBarComponent,
       RegisterComponent,
       HasRoleDirective,
@@ -74,7 +75,9 @@ export function tokenGetter() {
       PhotoMangementComponent,
       UserListComponent,
       UsersMangementComponent,
-      CategoriesMangementComponent
+      CategoriesMangementComponent,
+      HomeComponent,
+      ContactusComponent
    ],
   imports: [
     BrowserModule,

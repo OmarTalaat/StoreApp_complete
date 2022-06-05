@@ -50,7 +50,7 @@ export class NavBarComponent implements OnInit {
        }, error => {
          this.alertify.error(error);
 
-       } , () => {this.router.navigate(['/categorylist']); }
+       } , () => {this.router.navigate(['categorylist']); }
        );
      }
       loggedIn() {

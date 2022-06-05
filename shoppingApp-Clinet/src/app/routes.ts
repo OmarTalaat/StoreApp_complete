@@ -8,7 +8,6 @@ import { UsersMangementComponent } from "./admin/components/users-mangement/user
 import { CheckoutComponent } from "./cart/components/checkout/checkout.component";
 import { OrderDetailsComponent } from "./cart/components/order/order-details/order-details.component";
 import { CategoryListComponent } from "./categories/components/category-list/category-list.component";
-import { HomeComponent } from "./home/home.component";
 import { ProductDetailsComponent } from "./products/components/product-details/product-details.component";
 import { ProductsListComponent } from "./products/components/products-list/products-list.component";
 
@@ -17,6 +16,9 @@ import { AuthGuard } from "./guards/auth.guard";
 import { OrderDetailsResolver } from "./cart/resolvers/order-details.resolver";
 import { ProductListResolver } from "src/app/products/resolvers/product-list.resolver";
 import { ProductDetailsResolver } from "src/app/products/resolvers/product-details.resolver";
+import { HomeComponent } from "./home/home.component";
+import { ContactusComponent } from "./contactus/contactus.component";
+
 
 
 
@@ -25,6 +27,7 @@ import { ProductDetailsResolver } from "src/app/products/resolvers/product-detai
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
+  {path:'contactus' ,component:ContactusComponent},
   {path:'sinup' ,component:RegisterComponent},
 
    {path: '',

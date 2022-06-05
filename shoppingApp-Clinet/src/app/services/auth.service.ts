@@ -30,7 +30,7 @@ constructor(private http: HttpClient) { }
         user.user = JSON.parse(localStorage.getItem('user') || 'null');
         this.decodedToken = this.jwtHelper.decodeToken(user.token);
         this.currentUser = user.user;
-        console.log(user)
+
       }
     })
   );
