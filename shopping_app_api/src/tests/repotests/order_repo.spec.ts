@@ -2,7 +2,7 @@ import { OrderDetailsDto } from "../../database/dtos/orderDtos/orderDetailsDto";
 import orderRepo from "../../database/repository/order.repo";
 import UserRepo from "../../database/repository/user.repo";
 import adminService from "../../services/admin-services";
-import status from "../../_helper/status ";
+import status from "../../helper/status ";
 
 
 describe('order Model' , ()=> {

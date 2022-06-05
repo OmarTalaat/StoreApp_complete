@@ -7,18 +7,26 @@
     "start": "node ./dist/server.js",
     "build": "rimraf -rf ./dist &&npx  tsc",
     "test": "  db-migrate up --env test up &&  npx tsc  && Env=test jasmine && db-migrate reset  --env test ",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"" 
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\""
+  },
+  "engines" : { 
+    "npm" : ">=8.5.0",
+    "node" : ">=16.14.2"
   },
   "dependencies": {
+    "aws-sdk": "^2.1148.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "db-migrate": "^0.11.13",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "production": "^0.0.2",
+    "shrinkwrap": "^0.4.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

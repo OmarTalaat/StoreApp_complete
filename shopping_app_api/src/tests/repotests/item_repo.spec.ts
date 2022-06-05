@@ -11,7 +11,7 @@ import productRepo from "../../database/repository/products.repo";
 import UserRepo from "../../database/repository/user.repo";
 import adminService from "../../services/admin-services";
 import authService from "../../services/auth-services";
-import status from "../../_helper/status ";
+import status from "../../helper/status ";
 
 
 

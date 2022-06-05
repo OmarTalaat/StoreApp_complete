@@ -1,5 +1,5 @@
-yarn.lock
-node_modules
+
+node_modules/
 dist
 .env
 # Elastic Beanstalk Files

@@ -42,13 +42,14 @@ import { UserForEditDto } from "../dtos/userDtos/userForEditDto";
    }
 
  const  getuserByName= async(username:string):Promise<User>=> {
+    //console.log(username)
         try {
-            const sql = `SELECT * FROM users  where username=($1);`
+            const sql = `SELECT * FROM users  where username='${username}';`
             const conn = await Client.connect()
-            const result = await conn.query(sql,[username])
+            const result = await conn.query(sql)
             const user = result.rows[0]
             conn.release()
-            
+            //console.log(user)
               return user
          
            

@@ -21,6 +21,7 @@ const register = async (req:Request, res:Response,next:NextFunction) => {
             password: req.body.password
         }
        
+       
         const data  = await authService.signUp(user); 
 
         res.status(201).json({user: data , message: 'user created successfully'})
