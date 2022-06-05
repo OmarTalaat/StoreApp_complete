@@ -7,3 +7,4 @@ Follow the following steps to check the health of an elastic beanstalk applicati
 5. If you want to deploy anther version use ` eb deploy`
 6. If you want to about current operation `eb abort`
 6. If you want to terminate the enviroment `eb terminal shopping-prod` 
+7. to send varables `aws elasticbeanstalk update-environment --environment-name shopping-prod  --option-settings file://options.json` create options.json file in root directory

@@ -1,6 +1,6 @@
 
 
-infrastructure description
+## infrastructure description
 
 database in RDS AWS postgrase 
 
@@ -9,7 +9,7 @@ backend nodejs handle requests (get,post,put,delete) for the database
 frontend andgular 13 deals with the backend 
 
 
-app dependencies
+## app dependencies
  
 
  backend
@@ -20,7 +20,7 @@ frontend
     andgular 13
 
 
-pipeline process
+## pipeline process
 
 
 to create account in circeci by using github
